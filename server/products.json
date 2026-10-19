@@ -1,0 +1,226 @@
+[
+  {
+    "id": 1,
+    "name": "Gentle Foaming Cleanser",
+    "description": "A mild, sulfate-free cleanser that removes impurities without stripping skin's natural moisture. Perfect for daily use on all skin types.",
+    "category": "Skincare",
+    "image": "https://images.unsplash.com/photo-1556228578-8c89e6adf883?w=600&h=600&fit=crop",
+    "alt": "Gentle foaming facial cleanser in white pump bottle"
+  },
+  {
+    "id": 2,
+    "name": "Vitamin C Brightening Serum",
+    "description": "Powerful antioxidant serum with 15% Vitamin C to fade dark spots, boost collagen, and reveal radiant skin. Lightweight, fast-absorbing formula.",
+    "category": "Skincare",
+    "image": "https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=600&h=600&fit=crop",
+    "alt": "Vitamin C serum in amber glass dropper bottle"
+  },
+  {
+    "id": 3,
+    "name": "Hyaluronic Acid Moisturizer",
+    "description": "Deep hydration cream with multi-weight hyaluronic acid for plump, dewy skin. Non-greasy, perfect under makeup or as night cream.",
+    "category": "Skincare",
+    "image": "https://images.unsplash.com/photo-1571781926291-c477ecdf0779?w=600&h=600&fit=crop",
+    "alt": "Hyaluronic acid moisturizer in white jar with gold lid"
+  },
+  {
+    "id": 4,
+    "name": "Retinol Night Repair Cream",
+    "description": "Gentle retinol formula that works overnight to reduce fine lines, improve texture, and boost cell turnover. Encapsulated for minimal irritation.",
+    "category": "Skincare",
+    "image": "https://images.unsplash.com/photo-1556228720-195a672e8a03?w=600&h=600&fit=crop",
+    "alt": "Retinol night cream in silver tube"
+  },
+  {
+    "id": 5,
+    "name": "Rose Water Toner",
+    "description": "Pure steam-distilled rose water to balance pH, soothe irritation, and prep skin for serums. Alcohol-free, suitable for sensitive skin.",
+    "category": "Skincare",
+    "image": "https://images.unsplash.com/photo-1598440945508-2e4b5b8e8f5b?w=600&h=600&fit=crop",
+    "alt": "Rose water toner in clear spray bottle with rose petals"
+  },
+  {
+    "id": 6,
+    "name": "Clay Purifying Mask",
+    "description": "Kaolin and bentonite clay mask that draws out impurities, minimizes pores, and controls excess oil. Leaves skin smooth and refined.",
+    "category": "Skincare",
+    "image": "https://images.unsplash.com/photo-1608248597279-f99d160bfcbc?w=600&h=600&fit=crop",
+    "alt": "Green clay face mask in matte black pot"
+  },
+  {
+    "id": 7,
+    "name": "Matte Liquid Lipstick - Ruby Red",
+    "description": "Long-wear liquid lipstick with intense color payoff. Velvety matte finish that doesn't dry lips. Stays put for 8+ hours.",
+    "category": "Makeup",
+    "image": "https://images.unsplash.com/photo-1586495777744-4413f21062fa?w=600&h=600&fit=crop",
+    "alt": "Ruby red matte liquid lipstick with doe-foot applicator"
+  },
+  {
+    "id": 8,
+    "name": "Silky Pressed Powder Foundation",
+    "description": "Buildable medium coverage foundation with a natural matte finish. Infused with skin-loving minerals. 12 shades available.",
+    "category": "Makeup",
+    "image": "https://images.unsplash.com/photo-1596755389378-c31d21fd12f3?w=600&h=600&fit=crop",
+    "alt": "Pressed powder foundation in gold compact with mirror"
+  },
+  {
+    "id": 9,
+    "name": "Volumizing Mascara - Black",
+    "description": "Lengthening and volumizing mascara with a curved brush that lifts every lash. Smudge-proof, flake-free, easily removable with warm water.",
+    "category": "Makeup",
+    "image": "https://images.unsplash.com/photo-1585747860715-2b8b2c1c4e3e?w=600&h=600&fit=crop",
+    "alt": "Black volumizing mascara tube with curved brush"
+  },
+  {
+    "id": 10,
+    "name": "Cream Blush - Peach Glow",
+    "description": "Blendable cream blush for a natural, dewy flush. Finger-friendly formula melts into skin. Buildable from sheer to bold.",
+    "category": "Makeup",
+    "image": "https://images.unsplash.com/photo-1580456535280-8738a90b7c9e?w=600&h=600&fit=crop",
+    "alt": "Peach cream blush in small round pot"
+  },
+  {
+    "id": 11,
+    "name": "Brow Defining Pencil - Dark Brown",
+    "description": "Ultra-fine tip pencil for hair-like strokes. Built-in spoolie for blending. Waterproof, smudge-proof, lasts all day.",
+    "category": "Makeup",
+    "image": "https://images.unsplash.com/photo-1522338242992-e1a54906a8da?w=600&h=600&fit=crop",
+    "alt": "Dark brown brow pencil with spoolie end"
+  },
+  {
+    "id": 12,
+    "name": "Highlighter Palette - Champagne Dreams",
+    "description": "Three universal shades: champagne, rose gold, and bronze. Finely milled powders for a luminous, lit-from-within glow.",
+    "category": "Makeup",
+    "image": "https://images.unsplash.com/photo-1585522279941-8c1298476a7b?w=600&h=600&fit=crop",
+    "alt": "Three-pan highlighter palette in rose gold compact"
+  },
+  {
+    "id": 13,
+    "name": "Argan Oil Hair Serum",
+    "description": "Lightweight serum with pure Moroccan argan oil. Tames frizz, adds shine, protects from heat. Use on damp or dry hair.",
+    "category": "Haircare",
+    "image": "https://images.unsplash.com/photo-1535585209827-a15fcdbc4c2d?w=600&h=600&fit=crop",
+    "alt": "Argan oil hair serum in gold dropper bottle"
+  },
+  {
+    "id": 14,
+    "name": "Keratin Repair Shampoo",
+    "description": "Sulfate-free shampoo with hydrolyzed keratin to strengthen damaged hair. Gently cleanses while restoring elasticity and shine.",
+    "category": "Haircare",
+    "image": "https://images.unsplash.com/photo-1556228578-8c89e6adf883?w=600&h=600&fit=crop",
+    "alt": "Keratin repair shampoo in white pump bottle"
+  },
+  {
+    "id": 15,
+    "name": "Deep Conditioning Hair Mask",
+    "description": "Intensive weekly treatment with shea butter, coconut oil, and proteins. Repairs split ends, deeply nourishes, leaves hair silky smooth.",
+    "category": "Haircare",
+    "image": "https://images.unsplash.com/photo-1571781926291-c477ecdf0779?w=600&h=600&fit=crop",
+    "alt": "Deep conditioning hair mask in white tub"
+  },
+  {
+    "id": 16,
+    "name": "Heat Protectant Spray",
+    "description": "Shields hair up to 230°C. Lightweight mist prevents thermal damage, adds shine, reduces frizz. Essential before styling.",
+    "category": "Haircare",
+    "image": "https://images.unsplash.com/photo-1598440945508-2e4b5b8e8f5b?w=600&h=600&fit=crop",
+    "alt": "Heat protectant spray in clear bottle with fine mist"
+  },
+  {
+    "id": 17,
+    "name": "Scalp Scrub with Tea Tree",
+    "description": "Exfoliating scalp scrub with tea tree oil and sea salt. Removes buildup, soothes itchiness, promotes healthy hair growth.",
+    "category": "Haircare",
+    "image": "https://images.unsplash.com/photo-1608248597279-f99d160bfcbc?w=600&h=600&fit=crop",
+    "alt": "Scalp scrub in matte green jar"
+  },
+  {
+    "id": 18,
+    "name": "Floral Eau de Parfum - Jasmine & Sandalwood",
+    "description": "Elegant fragrance with top notes of bergamot, heart of jasmine and rose, base of sandalwood and vanilla. Long-lasting, sophisticated.",
+    "category": "Fragrance",
+    "image": "https://images.unsplash.com/photo-1541643600914-78b084683601?w=600&h=600&fit=crop",
+    "alt": "Floral perfume in clear glass bottle with gold cap"
+  },
+  {
+    "id": 19,
+    "name": "Fresh Citrus Cologne - Lemon Verbena",
+    "description": "Energizing unisex cologne with sparkling lemon, verbena, and white musk. Perfect for daily wear, refreshing and clean.",
+    "category": "Fragrance",
+    "image": "https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?w=600&h=600&fit=crop",
+    "alt": "Citrus cologne in tall clear bottle with silver cap"
+  },
+  {
+    "id": 20,
+    "name": "Warm Vanilla Body Mist",
+    "description": "Light, sweet body mist with vanilla, amber, and musk. Alcohol-free formula, gentle on skin. Layer with matching lotion.",
+    "category": "Fragrance",
+    "image": "https://images.unsplash.com/photo-1588405748880-12d1d2a59d72?w=600&h=600&fit=crop",
+    "alt": "Vanilla body mist in pink frosted spray bottle"
+  },
+  {
+    "id": 21,
+    "name": "Nail Polish - Classic Red",
+    "description": "High-shine, chip-resistant nail polish in timeless true red. Wide brush for smooth application. 7-free formula.",
+    "category": "Nail Products",
+    "image": "https://images.unsplash.com/photo-1599951705018-ec443b7e0b2c?w=600&h=600&fit=crop",
+    "alt": "Classic red nail polish in square glass bottle"
+  },
+  {
+    "id": 22,
+    "name": "Gel Top Coat - High Gloss",
+    "description": "Salon-quality gel top coat for long-lasting shine. Cures under UV/LED lamp. Protects color, prevents chipping for 2+ weeks.",
+    "category": "Nail Products",
+    "image": "https://images.unsplash.com/photo-1604653879673-928f5f5b1d3e?w=600&h=600&fit=crop",
+    "alt": "Gel top coat in professional bottle with brush"
+  },
+  {
+    "id": 23,
+    "name": "Cuticle Nourishing Oil",
+    "description": "Blend of jojoba, vitamin E, and almond oils. Penetrates deeply to soften cuticles, strengthen nails. Brush-on applicator.",
+    "category": "Nail Products",
+    "image": "https://images.unsplash.com/photo-1586495777744-4413f21062fa?w=600&h=600&fit=crop",
+    "alt": "Cuticle oil in gold pen with brush tip"
+  },
+  {
+    "id": 24,
+    "name": "Nail Strengthener Treatment",
+    "description": "Fortifying treatment with calcium, keratin, and peptides. Reduces breakage, promotes growth. Use as base coat or alone.",
+    "category": "Nail Products",
+    "image": "https://images.unsplash.com/photo-1596755389378-c31d21fd12f3?w=600&h=600&fit=crop",
+    "alt": "Nail strengthener in clear bottle with white cap"
+  },
+  {
+    "id": 25,
+    "name": "Sheet Mask Variety Pack (5 pcs)",
+    "description": "Assorted sheet masks: hydrating, brightening, firming, soothing, pore care. Individually sealed, travel-friendly.",
+    "category": "Skincare",
+    "image": "https://images.unsplash.com/photo-1556228720-195a672e8a03?w=600&h=600&fit=crop",
+    "alt": "Pack of 5 different sheet masks in colorful pouches"
+  },
+  {
+    "id": 26,
+    "name": "Eyeshadow Palette - Warm Neutrals",
+    "description": "12 versatile shades: mattes, shimmers, and metallics in warm tones. Highly pigmented, blendable, long-wearing.",
+    "category": "Makeup",
+    "image": "https://images.unsplash.com/photo-1585522279941-8c1298476a7b?w=600&h=600&fit=crop",
+    "alt": "12-pan eyeshadow palette in warm neutral tones"
+  },
+  {
+    "id": 27,
+    "name": "Leave-In Conditioner Spray",
+    "description": "Lightweight detangling spray with aloe vera and panthenol. Hydrates, protects, adds slip. Safe for color-treated hair.",
+    "category": "Haircare",
+    "image": "https://images.unsplash.com/photo-1598440945508-2e4b5b8e8f5b?w=600&h=600&fit=crop",
+    "alt": "Leave-in conditioner spray in pastel bottle"
+  },
+  {
+    "id": 28,
+    "name": "Rollerball Perfume - Rose & Oud",
+    "description": "Travel-friendly rollerball with concentrated perfume oil. Rose, oud, and patchouli. Alcohol-free, long-lasting on skin.",
+    "category": "Fragrance",
+    "image": "https://images.unsplash.com/photo-1541643600914-78b084683601?w=600&h=600&fit=crop",
+    "alt": "Rollerball perfume in gold metal case"
+  }
+]
