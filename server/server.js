@@ -20,7 +20,10 @@ app.use(express.static(path.join(__dirname, '../client/dist')));
 const productsPath = path.join(__dirname, 'products.json');
 const messagesPath = path.join(__dirname, 'messages.json');
 const ordersPath = path.join(__dirname, 'orders.json');
-const ADMIN_KEY = process.env.ADMIN_KEY || 'dhull-admin-2024';
+const ADMIN_KEY = process.env.ADMIN_KEY || '';
+if (!ADMIN_KEY) {
+  console.warn('Warning: ADMIN_KEY is not set. /api/orders will reject all requests. Set it in server/.env');
+}
 
 // Email notification config (Brevo transactional email)
 const BREVO_API_KEY = process.env.BREVO_API_KEY || '';
