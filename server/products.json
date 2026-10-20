@@ -20,8 +20,8 @@
     "name": "Hyaluronic Acid Moisturizer",
     "description": "Deep hydration cream with multi-weight hyaluronic acid for plump, dewy skin. Non-greasy, perfect under makeup or as night cream.",
     "category": "Skincare",
-    "image": "https://images.unsplash.com/photo-1571781926291-c477ecdf0779?w=600&h=600&fit=crop",
-    "alt": "Hyaluronic acid moisturizer in white jar with gold lid"
+    "image": "/images/products/face-cream.webp",
+    "alt": "Hyaluronic acid moisturizer face cream jar"
   },
   {
     "id": 4,
@@ -68,7 +68,7 @@
     "name": "Volumizing Mascara - Black",
     "description": "Lengthening and volumizing mascara with a curved brush that lifts every lash. Smudge-proof, flake-free, easily removable with warm water.",
     "category": "Makeup",
-    "image": "https://images.unsplash.com/photo-1585747860715-2b8b2c1c4e3e?w=600&h=600&fit=crop",
+    "image": "/images/products/mascara.webp",
     "alt": "Black volumizing mascara tube with curved brush"
   },
   {
@@ -204,7 +204,7 @@
     "name": "Eyeshadow Palette - Warm Neutrals",
     "description": "12 versatile shades: mattes, shimmers, and metallics in warm tones. Highly pigmented, blendable, long-wearing.",
     "category": "Makeup",
-    "image": "https://images.unsplash.com/photo-1585522279941-8c1298476a7b?w=600&h=600&fit=crop",
+    "image": "/images/products/eyeshadow-palette.webp",
     "alt": "12-pan eyeshadow palette in warm neutral tones"
   },
   {
