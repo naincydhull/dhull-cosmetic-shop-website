@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FiMessageSquare } from 'react-icons/fi';
+import { FaWhatsapp } from 'react-icons/fa';
 
 const WHATSAPP_NUMBER = '918053224896';
 const DEFAULT_MESSAGE = "Hi! I'm interested in your products. Could you please share more details?";
@@ -34,7 +35,7 @@ export default function WhatsAppFloat() {
 
   return (
     <div
-      className={`fixed bottom-6 right-6 z-50 transition-opacity duration-300 ${visible ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
+      className={`fixed bottom-6 left-6 z-50 transition-opacity duration-300 ${visible ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
       role="region"
       aria-label="WhatsApp contact options"
     >
@@ -45,19 +46,19 @@ export default function WhatsAppFloat() {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 10, scale: 0.9 }}
             transition={{ type: 'spring', stiffness: 400, damping: 25 }}
-            className="absolute bottom-20 right-0 flex flex-col gap-3"
+            className="absolute bottom-20 left-0 flex flex-col gap-3"
             role="menu"
           >
             {quickOptions.map((option) => (
               <motion.button
                 key={option.label}
-                whileHover={{ scale: 1.05, x: -4 }}
+                whileHover={{ scale: 1.05, x: 4 }}
                 whileTap={{ scale: 0.95 }}
                 onClick={() => openWhatsApp(option.message)}
                 className={`${option.color} text-white px-4 py-3 rounded-full shadow-lg flex items-center gap-2 whitespace-nowrap`}
                 role="menuitem"
               >
-                <FiMessageSquare size={18} aria-hidden="true" />
+                <FaWhatsapp size={18} aria-hidden="true" />
                 <span className="font-medium text-sm">{option.label}</span>
               </motion.button>
             ))}
@@ -77,7 +78,7 @@ export default function WhatsAppFloat() {
         {/* Pulsing attention ring */}
         <span className="absolute inset-0 rounded-full bg-green-500 animate-ping opacity-40" aria-hidden="true" />
         <motion.span animate={{ rotate: isExpanded ? 90 : 0 }} transition={{ type: 'spring', stiffness: 400, damping: 20 }} className="relative z-10">
-          <FiMessageSquare size={28} aria-hidden="true" />
+          <FaWhatsapp size={28} aria-hidden="true" />
         </motion.span>
       </motion.button>
     </div>

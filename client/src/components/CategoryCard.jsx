@@ -70,13 +70,13 @@ export default function CategoryCard({ category, productCount, index = 0, onClic
       whileHover={{ y: -6, scale: 1.02 }}
       whileTap={{ scale: 0.98 }}
       onClick={onClick}
-      className="relative group card-base p-6 sm:p-8 text-center overflow-hidden hover:border-rose-200"
+      className="relative group card-base p-6 sm:p-8 text-center overflow-hidden hover:border-rose-200 min-h-[260px] flex flex-col"
     >
-      <div className="relative z-10">
+      <div className="relative z-10 flex-1 flex flex-col justify-between">
         <div className={`inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br ${gradient} text-white mb-4 shadow-lg group-hover:scale-110 transition-transform duration-300`}>
           {Icon}
         </div>
-        <h3 className="font-heading text-xl font-semibold text-charcoal-900 mb-2">
+        <h3 className="font-heading text-xl font-semibold text-charcoal-900 mb-2 truncate">
           {category}
         </h3>
         <p className="text-sm text-charcoal-500 mb-4">

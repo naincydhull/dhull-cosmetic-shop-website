@@ -6,6 +6,7 @@ import Footer from './components/Footer';
 import WhatsAppFloat from './components/WhatsAppFloat';
 import ScrollToTop from './components/ScrollToTop';
 import CartDrawer from './components/CartDrawer';
+import Chatbot from './components/Chatbot';
 import { CartProvider } from './context/CartContext';
 import { ToastProvider } from './components/Toast';
 import Home from './pages/Home';
@@ -43,6 +44,7 @@ function App() {
           </main>
           <Footer />
           <WhatsAppFloat />
+          <Chatbot />
           <ScrollToTop />
           <AnimatePresence>
             <CartDrawer isOpen={isCartOpen} onClose={() => setIsCartOpen(false)} />
