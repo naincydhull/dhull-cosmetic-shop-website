@@ -35,3 +35,4 @@ Thumbs.db
 .cache/
 .vite/
 server/orders.json
+.vercel

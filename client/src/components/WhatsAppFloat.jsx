@@ -1,6 +1,5 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { FiMessageSquare } from 'react-icons/fi';
 import { FaWhatsapp } from 'react-icons/fa';
 
 const WHATSAPP_NUMBER = '918053224896';
@@ -14,18 +13,6 @@ const quickOptions = [
 
 export default function WhatsAppFloat() {
   const [isExpanded, setIsExpanded] = useState(false);
-  const [visible, setVisible] = useState(true);
-
-  useEffect(() => {
-    let lastScroll = 0;
-    const handleScroll = () => {
-      const currentScroll = window.scrollY;
-      setVisible(currentScroll > lastScroll === false || currentScroll < 200);
-      lastScroll = currentScroll;
-    };
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
 
   const openWhatsApp = (customMessage = '') => {
     const message = encodeURIComponent(customMessage || DEFAULT_MESSAGE);
@@ -35,7 +22,7 @@ export default function WhatsAppFloat() {
 
   return (
     <div
-      className={`fixed bottom-6 left-6 z-50 transition-opacity duration-300 ${visible ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
+      className="fixed bottom-6 left-6 z-50"
       role="region"
       aria-label="WhatsApp contact options"
     >

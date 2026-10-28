@@ -1,0 +1,10 @@
+node_modules
+client/node_modules
+client/dist
+server/node_modules
+.git
+.gitignore
+*.log
+shopping (1).webp
+shopping (2).webp
+shopping (3).webp
