@@ -1,7 +1,7 @@
 # Dhull Cosmetic Shop — Website
 
 A modern, fully animated, multi-page website for **Dhull Cosmetic Shop** — a trusted local
-beauty store in **Harshola, Kaithal, Haryana**.
+beauty store in **Harsola, Kaithal, Haryana**.
 
 > This site is for **display and enquiry only**: no cart, checkout, payment, or login.
 > Customers browse products, add to an enquiry cart, and reach out via WhatsApp or phone.
@@ -174,7 +174,7 @@ Orders → `server/orders.json`
 ## Shop Information
 
 - **Name:** Dhull Cosmetic Shop
-- **Address:** Harshola, Kaithal, Haryana
+- **Address:** Harsola, Kaithal, Haryana
 - **Phone / WhatsApp:** 8053224896
 - **Timing:** 9:00 AM – 7:00 PM (daily)
 - **Categories:** Skincare, Makeup, Haircare, Fragrance, Nail Products, and more

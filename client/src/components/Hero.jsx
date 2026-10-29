@@ -114,7 +114,7 @@ export default function Hero() {
             className="inline-flex items-center gap-2 bg-cream-50/10 backdrop-blur-md border border-gold-300/40 px-4 py-2 rounded-full text-sm font-medium text-gold-200 mb-7 shadow-lg"
           >
             <span className="w-2 h-2 rounded-full bg-gold-400 animate-pulse" aria-hidden="true" />
-            Harshola, Kaithal, Haryana
+            Harsola, Kaithal, Haryana
           </motion.span>
 
           <motion.h1
@@ -176,7 +176,7 @@ export default function Hero() {
               <FiPhone className="text-gold-300" aria-hidden="true" /> 8053224896
             </span>
             <span className="flex items-center gap-2">
-              <FiMapPin className="text-gold-300" aria-hidden="true" /> Harshola, Kaithal
+              <FiMapPin className="text-gold-300" aria-hidden="true" /> Harsola, Kaithal
             </span>
           </motion.div>
 

@@ -262,7 +262,7 @@ app.get('/api/orders', (req, res) => {
 const CHAT_SYSTEM_PROMPT = `You are the friendly AI assistant of "Dhull Cosmetic Shop", a real beauty store.
 
 Shop info:
-- Address: Harshola, Kaithal, Haryana, India
+- Address: Harsola, Kaithal, Haryana, India
 - Open every day: 9:00 AM to 7:00 PM
 - Phone / WhatsApp: 8053224896 (https://wa.me/918053224896)
 - Website sections: Products, About, Gallery, Contact

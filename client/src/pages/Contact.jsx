@@ -28,7 +28,7 @@ const contactCards = [
   {
     icon: FiMapPin,
     title: 'Visit Us',
-    value: 'Harshola, Kaithal, Haryana',
+    value: 'Harsola, Kaithal, Haryana',
     color: 'bg-gold-100 text-gold-600',
   },
   {
@@ -135,7 +135,7 @@ export default function Contact() {
                 </div>
                 <div className="mt-6 flex items-start gap-3 text-sm text-charcoal-500">
                   <FiMail className="text-rose-500 mt-0.5 flex-shrink-0" aria-hidden="true" />
-                  <span>Or just walk in! We're open every day from 9 AM to 7 PM at Harshola, Kaithal.</span>
+                  <span>Or just walk in! We're open every day from 9 AM to 7 PM at Harsola, Kaithal.</span>
                 </div>
               </div>
             </motion.div>

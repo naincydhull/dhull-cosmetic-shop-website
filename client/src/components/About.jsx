@@ -19,7 +19,7 @@ const highlights = [
   {
     icon: FiUsers,
     title: 'Trusted by Customers',
-    desc: 'Over a decade of serving Harshola and Kaithal families with honesty and care.',
+    desc: 'Over a decade of serving Harsola and Kaithal families with honesty and care.',
     color: 'from-rose-300 to-rose-500',
   },
   {
@@ -70,7 +70,7 @@ export default function About() {
             />
             <div className="mt-6 space-y-5 text-charcoal-600 leading-relaxed">
               <p>
-                Dhull Cosmetic Shop started as a small counter in Harshola village with a simple mission: bring genuine, quality beauty products to local families without them having to travel to the city. Over the years, that counter has grown into one of Kaithal's most trusted cosmetic destinations — but our values haven't changed.
+                Dhull Cosmetic Shop started as a small counter in Harsola village with a simple mission: bring genuine, quality beauty products to local families without them having to travel to the city. Over the years, that counter has grown into one of Kaithal's most trusted cosmetic destinations — but our values haven't changed.
               </p>
               <p>
                 We carefully hand-pick every item on our shelves — from daily skincare essentials like cleansers, moisturisers and serums, to makeup for every occasion, haircare essentials, fragrances, and nail care. Whether you're looking for a gentle face wash, a long-lasting lipstick, or a nourishing hair oil, you'll find authentic products at honest prices.

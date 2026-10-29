@@ -1,5 +1,5 @@
 export default function GoogleMap({ 
-  address = 'Harshola, Kaithal, Haryana',
+  address = 'Harsola, Kaithal, Haryana',
   className = '',
   height = 'h-96'
 }) {

@@ -15,7 +15,7 @@ const testimonials = [
   {
     id: 2,
     name: 'Anita Devi',
-    location: 'Harshola',
+    location: 'Harsola',
     rating: 5,
     text: 'Been shopping here for years. Best place in the area for all beauty needs - from daily skincare to special occasion makeup. Always fresh stock and genuine products. Highly recommended!',
     avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&h=100&fit=crop&crop=face',

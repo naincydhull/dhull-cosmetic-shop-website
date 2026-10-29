@@ -3,7 +3,7 @@ import { FiFacebook, FiInstagram, FiYoutube, FiMapPin, FiPhone, FiMail, FiClock,
 
 const shopInfo = {
   name: 'Dhull Cosmetic Shop',
-  address: 'Harshola, Kaithal, Haryana',
+  address: 'Harsola, Kaithal, Haryana',
   phone: '8053224896',
   whatsapp: '8053224896',
   timing: '9:00 AM - 7:00 PM',
@@ -52,7 +52,7 @@ export default function Footer() {
               <span className="font-heading text-2xl font-semibold">Dhull Cosmetic Shop</span>
             </Link>
             <p className="text-charcoal-300 text-sm leading-relaxed mb-6 max-w-xs">
-              Your trusted local beauty destination in Harshola, Kaithal. Offering quality skincare, makeup, haircare, fragrance & nail products at affordable prices since 2010.
+              Your trusted local beauty destination in Harsola, Kaithal. Offering quality skincare, makeup, haircare, fragrance & nail products at affordable prices since 2010.
             </p>
             <div className="flex flex-wrap gap-3">
               {socialLinks.map((social) => (

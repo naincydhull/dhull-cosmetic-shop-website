@@ -31,7 +31,7 @@ const categories = [
 const whyChooseUs = [
   { icon: FiAward, title: 'Genuine Products', desc: 'We stock only authentic, quality-tested cosmetics from trusted suppliers.', color: 'from-rose-400 to-rose-600' },
   { icon: FiTag, title: 'Affordable Prices', desc: 'Premium beauty products at prices that fit every budget in our community.', color: 'from-gold-400 to-gold-600' },
-  { icon: FiHeart, title: 'Trusted Local Shop', desc: 'Serving Harshola and Kaithal families with love for over a decade.', color: 'from-rose-300 to-rose-600' },
+  { icon: FiHeart, title: 'Trusted Local Shop', desc: 'Serving Harsola and Kaithal families with love for over a decade.', color: 'from-rose-300 to-rose-600' },
   { icon: FiGrid, title: 'Wide Variety', desc: '500+ products across skincare, makeup, haircare, fragrance and nails.', color: 'from-gold-500 to-gold-700' },
 ];
 
@@ -154,7 +154,7 @@ export default function Home() {
         <div className="container-custom">
           <SectionTitle
             title="Visit Us Today"
-            subtitle="Find us in the heart of Harshola — we'd love to see you."
+            subtitle="Find us in the heart of Harsola — we'd love to see you."
           />
           <div className="mt-12 grid lg:grid-cols-2 gap-8 items-stretch">
             <motion.div
@@ -169,7 +169,7 @@ export default function Home() {
                 </div>
                 <div>
                   <h3 className="font-heading font-semibold text-charcoal-900">Address</h3>
-                  <p className="text-charcoal-500 mt-1">Harshola, Kaithal, Haryana</p>
+                  <p className="text-charcoal-500 mt-1">Harsola, Kaithal, Haryana</p>
                 </div>
               </div>
               <div className="card-base p-6 flex items-start gap-4">
