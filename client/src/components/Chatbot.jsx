@@ -15,6 +15,26 @@ const QUICK_PROMPTS = [
   'Skincare products dikhao',
 ];
 
+const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+const RETRY_DELAYS = [0, 5000, 10000, 15000];
+
+async function chatRequest(payload) {
+  const controller = new AbortController();
+  const timer = setTimeout(() => controller.abort(), 60000);
+  try {
+    const response = await fetch('/api/chat', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: payload,
+      signal: controller.signal,
+    });
+    const data = await response.json().catch(() => ({}));
+    return { response, data };
+  } finally {
+    clearTimeout(timer);
+  }
+}
+
 export default function Chatbot() {
   const [open, setOpen] = useState(false);
   const [maximized, setMaximized] = useState(false);
@@ -22,9 +42,18 @@ export default function Chatbot() {
   const [input, setInput] = useState('');
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
+  const [notice, setNotice] = useState('');
 
   const scrollRef = useRef(null);
   const inputRef = useRef(null);
+  const warmedRef = useRef(false);
+
+  // Wake the backend early so the first chat message doesn't wait on a cold start.
+  useEffect(() => {
+    if (warmedRef.current) return;
+    warmedRef.current = true;
+    fetch('/api/products').catch(() => {});
+  }, []);
 
   useEffect(() => {
     const el = scrollRef.current;
@@ -41,26 +70,52 @@ export default function Chatbot() {
       if (!content || loading) return;
 
       setError('');
+      setNotice('');
       setInput('');
       const nextMessages = [...messages, { role: 'user', content }];
       setMessages(nextMessages);
       setLoading(true);
 
-      try {
-        const response = await fetch('/api/chat', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ messages: nextMessages.slice(1) }),
-        });
-        const data = await response.json().catch(() => ({}));
-        if (!response.ok) throw new Error(data.error || 'Something went wrong');
-        setMessages((prev) => [...prev, { role: 'assistant', content: data.reply }]);
-      } catch (err) {
-        setError(err.message || 'Something went wrong. Please try again.');
-      } finally {
-        setLoading(false);
-        inputRef.current?.focus();
+      const payload = JSON.stringify({ messages: nextMessages.slice(1) });
+      let fatalError = null;
+
+      for (let attempt = 0; attempt < RETRY_DELAYS.length; attempt += 1) {
+        if (RETRY_DELAYS[attempt] > 0) {
+          setNotice(
+            attempt === 1
+              ? 'Server start ho raha hai, thoda wait karein…'
+              : `Phir se try kar rahe hain… (${attempt + 1}/${RETRY_DELAYS.length})`
+          );
+          await sleep(RETRY_DELAYS[attempt]);
+        }
+
+        try {
+          const { response, data } = await chatRequest(payload);
+          if (!response.ok) {
+            // Render free tier returns 429/502/503/504 while the service wakes up.
+            if ([429, 502, 503, 504].includes(response.status)) continue;
+            fatalError = new Error(data.error || `Request failed (${response.status})`);
+            break;
+          }
+          if (data.reply) {
+            setNotice('');
+            setMessages((prev) => [...prev, { role: 'assistant', content: data.reply }]);
+            setLoading(false);
+            inputRef.current?.focus();
+            return;
+          }
+        } catch {
+          // Network error or timeout — try again.
+        }
       }
+
+      setLoading(false);
+      setNotice('');
+      setError(
+        fatalError?.message ||
+          'Chatbot abhi connect nahi ho paya. Thodi der baad dobara try karein, ya WhatsApp par message bhejein.'
+      );
+      inputRef.current?.focus();
     },
     [input, loading, messages]
   );
@@ -149,6 +204,12 @@ export default function Chatbot() {
                     ))}
                   </div>
                 </div>
+              )}
+
+              {notice && (
+                <p className="mx-auto max-w-[90%] rounded-xl bg-gold-100 px-3 py-2 text-center text-xs text-charcoal-700 ring-1 ring-gold-300">
+                  {notice}
+                </p>
               )}
 
               {error && (
