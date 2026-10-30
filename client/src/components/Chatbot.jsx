@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { FiSend, FiMinus, FiMaximize2, FiMinimize2, FiMessageCircle } from 'react-icons/fi';
+import { FiSend, FiMinus, FiRefreshCw, FiMaximize2, FiMinimize2, FiMessageCircle } from 'react-icons/fi';
 
 const WELCOME = {
   role: 'assistant',
@@ -47,6 +47,7 @@ export default function Chatbot() {
   const scrollRef = useRef(null);
   const inputRef = useRef(null);
   const warmedRef = useRef(false);
+  const requestRef = useRef(0);
 
   // Wake the backend early so the first chat message doesn't wait on a cold start.
   useEffect(() => {
@@ -69,6 +70,9 @@ export default function Chatbot() {
       const content = (text ?? input).trim();
       if (!content || loading) return;
 
+      const token = requestRef.current + 1;
+      requestRef.current = token;
+
       setError('');
       setNotice('');
       setInput('');
@@ -89,8 +93,11 @@ export default function Chatbot() {
           await sleep(RETRY_DELAYS[attempt]);
         }
 
+        if (token !== requestRef.current) return;
+
         try {
           const { response, data } = await chatRequest(payload);
+          if (token !== requestRef.current) return;
           if (!response.ok) {
             // Render free tier returns 429/502/503/504 while the service wakes up.
             if ([429, 502, 503, 504].includes(response.status)) continue;
@@ -109,6 +116,8 @@ export default function Chatbot() {
         }
       }
 
+      if (token !== requestRef.current) return;
+
       setLoading(false);
       setNotice('');
       setError(
@@ -119,6 +128,16 @@ export default function Chatbot() {
     },
     [input, loading, messages]
   );
+
+  const resetChat = useCallback(() => {
+    requestRef.current += 1;
+    setMessages([WELCOME]);
+    setInput('');
+    setError('');
+    setNotice('');
+    setLoading(false);
+    inputRef.current?.focus();
+  }, []);
 
   const handleKeyDown = (e) => {
     if (e.key === 'Enter' && !e.shiftKey) {
@@ -159,6 +178,14 @@ export default function Chatbot() {
                   AI Assistant • Online
                 </p>
               </div>
+              <button
+                onClick={resetChat}
+                className="rounded-lg p-2 text-rose-100 hover:bg-white/15 hover:text-white transition-colors"
+                aria-label="Start new chat"
+                title="New chat"
+              >
+                <FiRefreshCw size={18} />
+              </button>
               <button
                 onClick={() => setMaximized((v) => !v)}
                 className="rounded-lg p-2 text-rose-100 hover:bg-white/15 hover:text-white transition-colors"
