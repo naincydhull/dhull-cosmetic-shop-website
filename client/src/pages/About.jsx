@@ -15,7 +15,7 @@ export default function About() {
         <div className="absolute inset-0" aria-hidden="true">
           <img
             src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=1600&h=900&fit=crop&q=80"
-            alt=""
+            alt="Dhull Cosmetic Shop Interior - Beauty Products Display Harsola Kaithal"
             className="w-full h-full object-cover brightness-[0.4]"
             loading="eager"
           />

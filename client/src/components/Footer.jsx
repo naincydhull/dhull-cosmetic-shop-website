@@ -46,7 +46,7 @@ export default function Footer() {
             <Link to="/" className="flex items-center gap-2 mb-6" aria-label="Dhull Cosmetic Shop Home">
               <img
                 src="/logo.svg"
-                alt="Dhull Cosmetic Shop logo"
+                alt="Dhull Cosmetic Shop Logo - Cosmetics and Beauty Products Store"
                 width="40"
                 height="40"
                 className="w-10 h-10 object-contain"

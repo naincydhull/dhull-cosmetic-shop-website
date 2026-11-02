@@ -90,12 +90,11 @@ export default function TestimonialSlider() {
             transition={{ delay: 0.2 }}
             className="mt-6 flex items-center justify-center gap-4"
           >
-            <img
-              src={current.avatar}
-              alt=""
-              className="w-12 h-12 rounded-full object-cover border-2 border-rose-200"
-              aria-hidden="true"
-            />
+              <img
+                src={`https://ui-avatars.com/api/?name=${encodeURIComponent(testimonial.name)}&background=D4A24C&color=6B1030&size=128`}
+                alt={`Customer ${testimonial.name} - Dhull Cosmetic Shop Review`}
+                className="w-12 h-12 rounded-full object-cover border-2 border-gold-300"
+              />
             <div className="text-left">
               <p className="font-heading font-semibold text-charcoal-900">{current.name}</p>
               <p className="text-sm text-charcoal-500">{current.location}</p>

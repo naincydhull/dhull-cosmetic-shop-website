@@ -166,7 +166,7 @@ export default function Chatbot() {
               <div className="h-11 w-11 shrink-0 overflow-hidden rounded-full bg-cream-100 ring-2 ring-gold-400">
                 <img
                   src="/logo.svg"
-                  alt="Dhull Cosmetic Shop logo"
+                  alt="Dhull Cosmetic Shop Logo - AI Beauty Assistant"
                   className="h-full w-full object-cover"
                   onError={(e) => { e.currentTarget.style.display = 'none'; }}
                 />
@@ -303,12 +303,11 @@ export default function Chatbot() {
         {open ? (
           <FiMessageCircle size={30} className="text-cream-50" aria-hidden="true" />
         ) : (
-          <img
-            src="/logo.svg"
-            alt=""
-            className="h-14 w-14 rounded-full object-cover"
-            onError={(e) => { e.currentTarget.style.display = 'none'; }}
-          />
+            <img
+              src="/logo.svg"
+              alt="Dhull Cosmetic Shop Chatbot Assistant"
+              className="w-6 h-6 rounded-full"
+            />
         )}
       </motion.button>
     </div>

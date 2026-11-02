@@ -206,13 +206,12 @@ export default function Home() {
       {/* CTA BANNER */}
       <section className="relative overflow-hidden">
         <div className="absolute inset-0" aria-hidden="true">
-          <img
-            src={heroImages.cta}
-            alt=""
-            className="w-full h-full object-cover"
-            loading="lazy"
-            onError={(e) => { e.currentTarget.style.display = 'none'; }}
-          />
+            <img
+              src={heroImages.main}
+              alt="Dhull Cosmetic Shop - Beauty Products Display in Harsola Kaithal"
+              className="w-full h-full object-cover"
+              loading="lazy"
+            />
           <div className="absolute inset-0 bg-gradient-to-r from-rose-900/90 via-rose-800/85 to-plum-900/85" />
         </div>
         <div className="container-custom relative z-10 section-padding text-center text-white">

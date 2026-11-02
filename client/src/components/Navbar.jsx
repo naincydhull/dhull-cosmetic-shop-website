@@ -39,7 +39,7 @@ export default function Navbar() {
             <Link to="/" className="flex items-center gap-2" aria-label="Dhull Cosmetic Shop Home">
               <img
                 src="/logo.svg"
-                alt="Dhull Cosmetic Shop logo"
+                alt="Dhull Cosmetic Shop Logo - Best Cosmetics Store in Harsola Kaithal Haryana"
                 width="40"
                 height="40"
                 className="w-9 h-9 lg:w-10 lg:h-10 object-contain"
