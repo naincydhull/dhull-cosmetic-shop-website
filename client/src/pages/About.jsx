@@ -1,6 +1,8 @@
 import { motion } from 'framer-motion';
 import AboutSection from '../components/About';
 import usePageMeta from '../hooks/usePageMeta';
+import { Link } from 'react-router-dom';
+import { FiArrowRight } from 'react-icons/fi';
 
 export default function About() {
   usePageMeta({
@@ -31,19 +33,45 @@ export default function About() {
             About Us
           </motion.h1>
           <motion.p
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ delay: 0.15 }}
-            className="mt-4 text-lg text-rose-100 max-w-2xl mx-auto"
+            transition={{ delay: 0.1 }}
+            className="mt-4 text-white/80 text-lg"
           >
-            Discover our journey from a small village counter to Kaithal's trusted beauty destination
+            Our story, values & commitment to beauty
           </motion.p>
         </div>
       </section>
 
-      {/* ABOUT SECTION */}
+      {/* ABOUT CONTENT */}
       <AboutSection />
+
+      {/* CTA SECTION */}
+      <section className="section-padding bg-cream-200">
+        <div className="container-custom text-center">
+          <h2 className="text-2xl sm:text-3xl font-heading font-semibold text-charcoal-900 mb-4">
+            Explore Our Beauty Products
+          </h2>
+          <p className="text-charcoal-600 mb-8 max-w-2xl mx-auto">
+            Discover our wide range of skincare, makeup, haircare and fragrance products at Dhull Cosmetic Shop.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Link to="/products" className="btn-primary inline-flex items-center gap-2">
+              Browse Products
+              <FiArrowRight aria-hidden="true" />
+            </Link>
+            <Link to="/gallery" className="btn-secondary inline-flex items-center gap-2">
+              View Gallery
+              <FiArrowRight aria-hidden="true" />
+            </Link>
+            <Link to="/contact-us" className="btn-gold inline-flex items-center gap-2">
+              Contact Us
+              <FiArrowRight aria-hidden="true" />
+            </Link>
+          </div>
+        </div>
+      </section>
     </div>
   );
 }

@@ -141,7 +141,7 @@ export default function Contact() {
                 </div>
                 <div className="mt-6 flex items-start gap-3 text-sm text-charcoal-500">
                   <FiMail className="text-rose-500 mt-0.5 flex-shrink-0" aria-hidden="true" />
-                  <span>Or just walk in! We're open every day from 9 AM to 7 PM at Harsola, Kaithal.</span>
+                  <span>Or just walk in! We're open every day from 9 AM to 7 PM at Harsola, Kaithal. Browse our <Link to="/products" className="text-rose-600 hover:underline">products</Link> or <Link to="/gallery" className="text-rose-600 hover:underline">gallery</Link>.</span>
                 </div>
               </div>
             </motion.div>
