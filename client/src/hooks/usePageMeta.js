@@ -6,6 +6,8 @@ export default function usePageMeta({ title, description, keywords } = {}) {
     const previousTitle = document.title;
     if (title) {
       document.title = `${title} | Dhull Cosmetic Shop - Harsola, Kaithal`;
+    } else {
+      document.title = 'Dhull Cosmetic Shop - Harsola, Kaithal';
     }
 
     // Update description
@@ -26,6 +28,8 @@ export default function usePageMeta({ title, description, keywords } = {}) {
     const previousOgTitle = ogTitle?.getAttribute('content');
     if (title && ogTitle) {
       ogTitle.setAttribute('content', `${title} | Dhull Cosmetic Shop - Harsola, Kaithal`);
+    } else if (!title && ogTitle) {
+      ogTitle.setAttribute('content', 'Dhull Cosmetic Shop - Harsola, Kaithal');
     }
 
     // Update og:description
