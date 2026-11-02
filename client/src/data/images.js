@@ -35,22 +35,6 @@ export const galleryImages = [
   { url: '/images/pic3.webp', alt: 'Beauty and personal care products arranged on shop shelves' },
   { url: '/images/pic4.webp', alt: 'Products displayed on the shop shelves' },
   { url: '/images/pic5.webp', alt: 'Cosmetics and personal care products displayed in store' },
-  { url: img('photo-1522335789203-aabd1fc54bc9', 900, 1200), alt: 'Assorted cosmetics flat lay on pink background' },
-  { url: img('photo-1556228578-8c89e6adf883', 900, 900), alt: 'White skincare bottles lined up neatly' },
-  { url: img('photo-1586495777744-4413f21062fa', 900, 1200), alt: 'Red lipstick with makeup brushes' },
-  { url: img('photo-1541643600914-78b084683601', 900, 900), alt: 'Perfume bottle with soft floral backdrop' },
-  { url: '/images/products/p21.webp', alt: 'Colorful nail polish bottles collection' },
-  { url: img('photo-1535585209827-a15fcdbc4c2d', 900, 900), alt: 'Hair care products with argan oil' },
-  { url: img('photo-1556228720-195a672e8a03', 900, 1200), alt: 'Skincare products for daily routine' },
-  { url: img('photo-1596462502278-27bfdc403348', 900, 900), alt: 'Makeup brushes and eyeshadow palette' },
-  { url: img('photo-1620916566398-39f1143ab7be', 900, 1200), alt: 'Serum dropper bottle with fresh green leaves' },
-  { url: img('photo-1608248597279-f99d160bfcbc', 900, 900), alt: 'Face mask treatment being applied' },
-  { url: img('photo-1612817288484-6f916006741a', 900, 1200), alt: 'Pink beauty products arrangement' },
-  { url: img('photo-1512496015851-a90fb38ba796', 900, 900), alt: 'Luxury beauty and spa products closeup' },
-  { url: img('photo-1617897903246-719242758050', 900, 1200), alt: 'Cosmetic bottles and tubes on peach background' },
-  { url: img('photo-1592945403244-b3fbafd7f539', 900, 900), alt: 'Fresh citrus fragrance bottle' },
-  { url: img('photo-1631729371254-42c2892f0e6e', 900, 1200), alt: 'Skincare set with towel and flowers' },
-  { url: img('photo-1503236823255-94609f598e71', 900, 900), alt: 'Beauty store display with products' },
 ];
 
 export const whyChooseIcons = {
