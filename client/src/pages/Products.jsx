@@ -8,10 +8,12 @@ import SectionTitle from '../components/SectionTitle';
 import ProductCard from '../components/ProductCard';
 import FilterButtons from '../components/FilterButtons';
 import useProducts from '../hooks/useProducts';
+import usePageTitle from '../hooks/usePageTitle';
 
 const WHATSAPP_NUMBER = '918053224896';
 
 export default function Products() {
+  usePageTitle('Products');
   const [searchParams, setSearchParams] = useSearchParams();
   const initialCategory = searchParams.get('category') || 'All';
   const [category, setCategory] = useState(initialCategory);

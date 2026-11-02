@@ -15,6 +15,7 @@ import GoogleMap from '../components/GoogleMap';
 import useProducts from '../hooks/useProducts';
 import { heroImages, categoryImages } from '../data/images';
 import { fadeUp, staggerContainer } from '../utils/animations';
+import usePageTitle from '../hooks/usePageTitle';
 
 const WHATSAPP_NUMBER = '918053224896';
 const WHATSAPP_LINK = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent("Hello! I'd like to know more about your products.")}`;
@@ -43,6 +44,7 @@ const stats = [
 ];
 
 export default function Home() {
+  usePageTitle('Home');
   const { products } = useProducts({});
   const featured = products.slice(0, 8);
 

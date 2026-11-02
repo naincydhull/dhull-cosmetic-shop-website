@@ -6,8 +6,10 @@ import SectionTitle from '../components/SectionTitle';
 import Lightbox from '../components/Lightbox';
 import { galleryImages } from '../data/images';
 import { fadeUp, staggerContainer } from '../utils/animations';
+import usePageTitle from '../hooks/usePageTitle';
 
 export default function Gallery() {
+  usePageTitle('Gallery');
   const [lightboxIndex, setLightboxIndex] = useState(null);
 
   const openLightbox = (index) => setLightboxIndex(index);

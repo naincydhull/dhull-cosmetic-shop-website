@@ -2,8 +2,10 @@ import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { FiPhone, FiMail, FiEye, FiLock, FiUnlock, FiArrowLeft, FiRefreshCw } from 'react-icons/fi';
 import { useToast } from '../components/Toast';
+import usePageTitle from '../hooks/usePageTitle';
 
 export default function AdminOrders() {
+  usePageTitle('Admin - Orders');
   const { addToast } = useToast();
   const [authenticated, setAuthenticated] = useState(false);
   const [key, setKey] = useState('');

@@ -1,7 +1,9 @@
 import { motion } from 'framer-motion';
 import AboutSection from '../components/About';
+import usePageTitle from '../hooks/usePageTitle';
 
 export default function About() {
+  usePageTitle('About Us');
   return (
     <div>
       {/* PAGE HEADER / BANNER */}

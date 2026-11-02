@@ -6,6 +6,7 @@ import SectionTitle from '../components/SectionTitle';
 import ContactForm from '../components/ContactForm';
 import GoogleMap from '../components/GoogleMap';
 import { fadeUp, staggerContainer } from '../utils/animations';
+import usePageTitle from '../hooks/usePageTitle';
 
 const WHATSAPP_NUMBER = '918053224896';
 const WHATSAPP_LINK = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent("Hello! I'd like to get in touch with Dhull Cosmetic Shop.")}`;
@@ -40,6 +41,7 @@ const contactCards = [
 ];
 
 export default function Contact() {
+  usePageTitle('Contact Us');
   return (
     <PageTransition>
       <section className="pt-12 pb-8 bg-gradient-to-br from-blush-100 via-cream-100 to-gold-50">
