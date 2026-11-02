@@ -44,11 +44,13 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 lg:gap-12">
           <div className="lg:col-span-2">
             <Link to="/" className="flex items-center gap-2 mb-6" aria-label="Dhull Cosmetic Shop Home">
-              <svg width="40" height="40" viewBox="0 0 40 40" fill="none" className="text-gold-300" aria-hidden="true">
-                <rect width="40" height="40" rx="12" fill="currentColor"/>
-                <path d="M20 10C16.6863 10 14 12.6863 14 16C14 18.2091 15.7909 20 18 20C19.1046 20 20 19.1046 20 18C20 16.8954 19.1046 16 18 16C16.8954 16 16 16.8954 16 18C16 19.6569 17.3431 21 19 21C20.1046 21 21 20.1046 21 19C21 17.8954 20.1046 17 19 17C19.5523 17 20 16.5523 20 16C20 12.6863 17.3137 10 20 10Z" fill="#0a0a0a"/>
-                <ellipse cx="20" cy="30" rx="7" ry="3" fill="#0a0a0a" opacity="0.3"/>
-              </svg>
+              <img
+                src="/logo.svg"
+                alt="Dhull Cosmetic Shop logo"
+                width="40"
+                height="40"
+                className="w-10 h-10 object-contain"
+              />
               <span className="font-heading text-2xl font-semibold">Dhull Cosmetic Shop</span>
             </Link>
             <p className="text-charcoal-300 text-sm leading-relaxed mb-6 max-w-xs">
