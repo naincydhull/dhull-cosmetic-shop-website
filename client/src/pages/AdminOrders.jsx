@@ -118,7 +118,7 @@ export default function AdminOrders() {
             >
               <FiLock className="w-8 h-8 text-rose-500" aria-hidden="true" />
             </motion.div>
-            <h1 className="font-heading text-2xl font-bold text-charcoal-900">Admin Access</h1>
+            <h2 className="font-heading text-2xl font-bold text-charcoal-900">Admin Access</h2>
             <p className="text-charcoal-500 mt-2">Enter the admin key to view orders</p>
           </div>
 
@@ -207,7 +207,7 @@ export default function AdminOrders() {
                 <FiArrowLeft size={20} aria-hidden="true" />
               </motion.button>
               <div>
-                <h1 className="font-heading text-xl font-bold text-charcoal-900">Admin Orders</h1>
+                <h2 className="font-heading text-xl font-bold text-charcoal-900">Admin Orders</h2>
                 <p className="text-sm text-charcoal-500">Manage customer orders</p>
               </div>
             </div>
