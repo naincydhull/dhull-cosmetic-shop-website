@@ -2,10 +2,13 @@ import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { FiPhone, FiMail, FiEye, FiLock, FiUnlock, FiArrowLeft, FiRefreshCw } from 'react-icons/fi';
 import { useToast } from '../components/Toast';
-import usePageTitle from '../hooks/usePageTitle';
+import usePageMeta from '../hooks/usePageMeta';
 
 export default function AdminOrders() {
-  usePageTitle('Admin - Orders');
+  usePageMeta({
+    title: 'Admin - Orders',
+    description: 'Admin panel for managing customer enquiries and orders at Dhull Cosmetic Shop.'
+  });
   const { addToast } = useToast();
   const [authenticated, setAuthenticated] = useState(false);
   const [key, setKey] = useState('');

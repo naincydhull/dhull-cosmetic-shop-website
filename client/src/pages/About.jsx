@@ -1,9 +1,12 @@
 import { motion } from 'framer-motion';
 import AboutSection from '../components/About';
-import usePageTitle from '../hooks/usePageTitle';
+import usePageMeta from '../hooks/usePageMeta';
 
 export default function About() {
-  usePageTitle('About Us');
+  usePageMeta({
+    title: 'About Us',
+    description: 'Learn about Dhull Cosmetic Shop - Your trusted local beauty store in Harsola, Kaithal. Quality products, fair prices, and friendly service since years.'
+  });
   return (
     <div>
       {/* PAGE HEADER / BANNER */}

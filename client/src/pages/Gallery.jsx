@@ -6,10 +6,13 @@ import SectionTitle from '../components/SectionTitle';
 import Lightbox from '../components/Lightbox';
 import { galleryImages } from '../data/images';
 import { fadeUp, staggerContainer } from '../utils/animations';
-import usePageTitle from '../hooks/usePageTitle';
+import usePageMeta from '../hooks/usePageMeta';
 
 export default function Gallery() {
-  usePageTitle('Gallery');
+  usePageMeta({
+    title: 'Gallery',
+    description: 'View our store gallery - A glimpse of Dhull Cosmetic Shop in Harsola, Kaithal. See our beauty products and shop atmosphere.'
+  });
   const [lightboxIndex, setLightboxIndex] = useState(null);
 
   const openLightbox = (index) => setLightboxIndex(index);

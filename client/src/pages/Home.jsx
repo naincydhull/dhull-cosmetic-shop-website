@@ -15,7 +15,7 @@ import GoogleMap from '../components/GoogleMap';
 import useProducts from '../hooks/useProducts';
 import { heroImages, categoryImages } from '../data/images';
 import { fadeUp, staggerContainer } from '../utils/animations';
-import usePageTitle from '../hooks/usePageTitle';
+import usePageMeta from '../hooks/usePageMeta';
 
 const WHATSAPP_NUMBER = '918053224896';
 const WHATSAPP_LINK = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent("Hello! I'd like to know more about your products.")}`;
@@ -44,7 +44,10 @@ const stats = [
 ];
 
 export default function Home() {
-  usePageTitle('Home');
+  usePageMeta({
+    title: 'Home',
+    description: 'Dhull Cosmetic Shop - Trusted beauty store in Harsola, Kaithal. Shop skincare, makeup, haircare, fragrance & nail products. Quality cosmetics at affordable prices.'
+  });
   const { products } = useProducts({});
   const featured = products.slice(0, 8);
 

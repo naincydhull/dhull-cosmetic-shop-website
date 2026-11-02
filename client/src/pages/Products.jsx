@@ -8,12 +8,15 @@ import SectionTitle from '../components/SectionTitle';
 import ProductCard from '../components/ProductCard';
 import FilterButtons from '../components/FilterButtons';
 import useProducts from '../hooks/useProducts';
-import usePageTitle from '../hooks/usePageTitle';
+import usePageMeta from '../hooks/usePageMeta';
 
 const WHATSAPP_NUMBER = '918053224896';
 
 export default function Products() {
-  usePageTitle('Products');
+  usePageMeta({
+    title: 'Products',
+    description: 'Browse our wide range of skincare, makeup, haircare, fragrance & nail products. Genuine beauty products at affordable prices in Harsola, Kaithal.'
+  });
   const [searchParams, setSearchParams] = useSearchParams();
   const initialCategory = searchParams.get('category') || 'All';
   const [category, setCategory] = useState(initialCategory);
