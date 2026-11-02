@@ -79,24 +79,24 @@ function cartReducer(state, action) {
 
 export function CartProvider({ children }) {
   const [state, dispatch] = useReducer(cartReducer, initialState);
-  const loadedRef = useRef(false);
 
-  // Load from localStorage immediately during render (synchronous) to avoid flash
-  if (!loadedRef.current) {
-    loadedRef.current = true;
+  // Load from localStorage
+  useEffect(() => {
     try {
       const stored = localStorage.getItem(STORAGE_KEY);
       if (stored) {
         const parsed = JSON.parse(stored);
         if (Array.isArray(parsed)) {
           dispatch({ type: 'LOAD_CART', payload: parsed });
+          return;
         }
       }
+      dispatch({ type: 'LOAD_CART', payload: [] });
     } catch (err) {
       console.error('Failed to load cart from localStorage:', err);
       dispatch({ type: 'LOAD_CART', payload: [] });
     }
-  }
+  }, []);
 
   // Persist to localStorage whenever items change (only after initial load)
   useEffect(() => {
@@ -107,18 +107,7 @@ export function CartProvider({ children }) {
         console.error('Failed to save cart to localStorage:', err);
       }
     }
-  }, [state.items]);
-
-  // Also persist when isLoaded becomes true (initial load complete)
-  useEffect(() => {
-    if (state.isLoaded) {
-      try {
-        localStorage.setItem(STORAGE_KEY, JSON.stringify(state.items));
-      } catch (err) {
-        console.error('Failed to save cart to localStorage:', err);
-      }
-    }
-  }, [state.isLoaded]);
+  }, [state.items, state.isLoaded]);
 
   const addToCart = useCallback((product) => {
     dispatch({ type: 'ADD_TO_CART', payload: { product } });
