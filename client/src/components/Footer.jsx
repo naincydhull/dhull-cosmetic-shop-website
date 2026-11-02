@@ -14,7 +14,7 @@ const footerLinks = {
     { label: 'Home', path: '/' },
     { label: 'Products', path: '/products' },
     { label: 'Gallery', path: '/gallery' },
-    { label: 'Contact', path: '/contact' },
+    { label: 'Contact', path: '/contact-us' },
   ],
   categories: [
     { label: 'Skincare', path: '/products?category=Skincare' },
@@ -24,8 +24,8 @@ const footerLinks = {
     { label: 'Nail Products', path: '/products?category=Nail Products' },
   ],
   support: [
-    { label: 'About Us', path: '/' },
-    { label: 'Visit Store', path: '/contact' },
+    { label: 'About Us', path: '/about-us' },
+    { label: 'Visit Store', path: '/contact-us' },
     { label: 'WhatsApp Us', path: 'https://wa.me/918053224896' },
     { label: 'Call Us', path: 'tel:+918053224896' },
   ],

@@ -243,7 +243,7 @@ export default function Home() {
               <FaWhatsapp className="mr-2" aria-hidden="true" />
               Message on WhatsApp
             </a>
-            <Link to="/contact" className="inline-flex items-center justify-center px-8 py-3 border-2 border-white text-white font-medium rounded-full hover:bg-white hover:text-rose-700 transition-all duration-300">
+            <Link to="/contact-us" className="inline-flex items-center justify-center px-8 py-3 border-2 border-white text-white font-medium rounded-full hover:bg-white hover:text-rose-700 transition-all duration-300">
               <FiMessageCircle className="mr-2" aria-hidden="true" />
               Contact Us
             </Link>

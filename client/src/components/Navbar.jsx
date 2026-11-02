@@ -6,10 +6,10 @@ import { useCart } from '../context/CartContext';
 
 const navLinks = [
   { path: '/', label: 'Home' },
-  { path: '/about', label: 'About' },
+  { path: '/about-us', label: 'About' },
   { path: '/products', label: 'Products' },
   { path: '/gallery', label: 'Gallery' },
-  { path: '/contact', label: 'Contact' },
+  { path: '/contact-us', label: 'Contact' },
 ];
 
 export default function Navbar() {

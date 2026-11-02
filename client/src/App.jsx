@@ -34,10 +34,13 @@ function App() {
             <AnimatePresence mode="wait">
               <Routes>
                 <Route path="/" element={<Home />} />
-                <Route path="/about" element={<About />} />
+                <Route path="/about-us" element={<About />} />
                 <Route path="/products" element={<Products />} />
                 <Route path="/cart" element={<div />} />
                 <Route path="/gallery" element={<Gallery />} />
+                <Route path="/contact-us" element={<Contact />} />
+                <Route path="/admin" element={<AdminOrders />} />
+                <Route path="/about" element={<About />} />
                 <Route path="/contact" element={<Contact />} />
                 <Route path="/admin-orders" element={<AdminOrders />} />
               </Routes>
