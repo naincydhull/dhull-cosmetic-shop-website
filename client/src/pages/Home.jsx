@@ -46,7 +46,8 @@ const stats = [
 export default function Home() {
   usePageMeta({
     title: 'Home',
-    description: 'Dhull Cosmetic Shop - Trusted beauty store in Harsola, Kaithal. Shop skincare, makeup, haircare, fragrance & nail products. Quality cosmetics at affordable prices.'
+    description: 'Dhull Cosmetic Shop - Best cosmetic store in Harsola, Kaithal, Haryana. Shop genuine skincare, makeup, haircare, perfume & nail products at affordable prices.',
+    keywords: 'dhull cosmetic shop harsola, cosmetic store kaithal, beauty shop haryana, buy cosmetics online kaithal'
   });
   const { products } = useProducts({});
   const featured = products.slice(0, 8);

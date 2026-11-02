@@ -5,7 +5,8 @@ import usePageMeta from '../hooks/usePageMeta';
 export default function About() {
   usePageMeta({
     title: 'About Us',
-    description: 'Learn about Dhull Cosmetic Shop - Your trusted local beauty store in Harsola, Kaithal. Quality products, fair prices, and friendly service since years.'
+    description: 'About Dhull Cosmetic Shop - Leading cosmetic store in Harsola, Kaithal, Haryana. Trusted for genuine beauty products, fair prices & quality service.',
+    keywords: 'about dhull cosmetic shop, cosmetic store harsola kaithal, beauty shop haryana'
   });
   return (
     <div>

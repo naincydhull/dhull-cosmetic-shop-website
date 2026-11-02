@@ -5,7 +5,7 @@ export default function usePageMeta({ title, description, keywords } = {}) {
     // Update title
     const previousTitle = document.title;
     if (title) {
-      document.title = `${title} | Dhull Cosmetic Shop`;
+      document.title = `${title} | Dhull Cosmetic Shop - Harsola, Kaithal`;
     }
 
     // Update description
@@ -15,11 +15,17 @@ export default function usePageMeta({ title, description, keywords } = {}) {
       metaDescription.setAttribute('content', description);
     }
 
+    // Update keywords
+    let metaKeywords = document.querySelector('meta[name="keywords"]');
+    if (keywords && metaKeywords) {
+      metaKeywords.setAttribute('content', keywords);
+    }
+
     // Update og:title
     let ogTitle = document.querySelector('meta[property="og:title"]');
     const previousOgTitle = ogTitle?.getAttribute('content');
     if (title && ogTitle) {
-      ogTitle.setAttribute('content', `${title} | Dhull Cosmetic Shop`);
+      ogTitle.setAttribute('content', `${title} | Dhull Cosmetic Shop - Harsola, Kaithal`);
     }
 
     // Update og:description
@@ -33,7 +39,7 @@ export default function usePageMeta({ title, description, keywords } = {}) {
     let twitterTitle = document.querySelector('meta[name="twitter:title"]');
     const previousTwitterTitle = twitterTitle?.getAttribute('content');
     if (title && twitterTitle) {
-      twitterTitle.setAttribute('content', `${title} | Dhull Cosmetic Shop`);
+      twitterTitle.setAttribute('content', `${title} | Dhull Cosmetic Shop - Harsola, Kaithal`);
     }
 
     // Update twitter:description
@@ -61,5 +67,5 @@ export default function usePageMeta({ title, description, keywords } = {}) {
         twitterDescription.setAttribute('content', previousTwitterDescription);
       }
     };
-  }, [title, description]);
+  }, [title, description, keywords]);
 }

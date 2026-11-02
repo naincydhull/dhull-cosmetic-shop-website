@@ -14,8 +14,9 @@ const WHATSAPP_NUMBER = '918053224896';
 
 export default function Products() {
   usePageMeta({
-    title: 'Products',
-    description: 'Browse our wide range of skincare, makeup, haircare, fragrance & nail products. Genuine beauty products at affordable prices in Harsola, Kaithal.'
+    title: 'Cosmetic Products',
+    description: 'Buy skincare products, makeup, haircare, fragrance & nail polish from Dhull Cosmetic Shop Harsola Kaithal. Wide range of beauty products at best prices.',
+    keywords: 'skincare products kaithal, makeup products harsola, haircare products, beauty products online, cosmetic products haryana'
   });
   const [searchParams, setSearchParams] = useSearchParams();
   const initialCategory = searchParams.get('category') || 'All';

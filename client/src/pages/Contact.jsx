@@ -43,7 +43,8 @@ const contactCards = [
 export default function Contact() {
   usePageMeta({
     title: 'Contact Us',
-    description: 'Get in touch with Dhull Cosmetic Shop. Visit us in Harsola, Kaithal or reach us via WhatsApp/phone. Open 9:00 AM - 7:00 PM.'
+    description: 'Contact Dhull Cosmetic Shop in Harsola, Kaithal, Haryana. Call us at 8053224896 or visit our store. Open Mon-Sun 9:00 AM - 7:00 PM.',
+    keywords: 'contact dhull cosmetic shop, cosmetic shop harsola contact, beauty store kaithal address'
   });
   return (
     <PageTransition>

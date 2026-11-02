@@ -10,8 +10,9 @@ import usePageMeta from '../hooks/usePageMeta';
 
 export default function Gallery() {
   usePageMeta({
-    title: 'Gallery',
-    description: 'View our store gallery - A glimpse of Dhull Cosmetic Shop in Harsola, Kaithal. See our beauty products and shop atmosphere.'
+    title: 'Store Gallery',
+    description: 'Photo gallery of Dhull Cosmetic Shop - View our store in Harsola, Kaithal, Haryana. See our wide collection of cosmetics and beauty products.',
+    keywords: 'dhull cosmetic shop photos, beauty store gallery kaithal, cosmetic shop harsola images'
   });
   const [lightboxIndex, setLightboxIndex] = useState(null);
 
