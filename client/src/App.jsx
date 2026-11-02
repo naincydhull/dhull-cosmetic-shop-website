@@ -19,8 +19,9 @@ import AdminOrders from './pages/AdminOrders';
 function App() {
   const [isCartOpen, setIsCartOpen] = useState(false);
 
-  // Make close function globally accessible for OrderForm
+  // Make open/close functions globally accessible
   if (typeof window !== 'undefined') {
+    window.__CART_DRAWER_OPEN__ = () => setIsCartOpen(true);
     window.__CART_DRAWER_CLOSE__ = () => setIsCartOpen(false);
   }
 

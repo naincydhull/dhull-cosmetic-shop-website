@@ -24,6 +24,9 @@ const ProductCard = forwardRef(function ProductCard({ product, index = 0, varian
     e.stopPropagation();
     addToCart(product);
     addToast('Product added to cart!', 'success');
+    if (typeof window !== 'undefined' && window.__CART_DRAWER_OPEN__) {
+      window.__CART_DRAWER_OPEN__();
+    }
   };
 
   const handleIncrease = (e) => {
