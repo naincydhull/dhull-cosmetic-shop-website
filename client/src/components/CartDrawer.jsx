@@ -56,12 +56,12 @@ export default function CartDrawer({ isOpen, onClose }) {
         aria-modal="true"
       >
         {/* Header */}
-        <div className="flex items-center justify-between p-5 border-b border-blush-100 bg-cream-100 sticky top-0 z-10">
+        <div className="flex items-center justify-between p-4 sm:p-5 border-b border-blush-100 bg-cream-100 sticky top-0 z-10">
           <motion.h2
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.1 }}
-            className="font-heading text-xl font-semibold text-charcoal-900"
+            className="font-heading text-lg sm:text-xl font-semibold text-charcoal-900"
           >
             Aapka Cart ({totalItems} items)
           </motion.h2>
@@ -81,7 +81,7 @@ export default function CartDrawer({ isOpen, onClose }) {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2 }}
-          className="flex-1 overflow-y-auto p-5 space-y-4"
+          className="flex-1 overflow-y-auto p-4 sm:p-5 space-y-4"
         >
           {cartItems.length === 0 ? (
             <div className="flex flex-col items-center justify-center h-64 text-center">

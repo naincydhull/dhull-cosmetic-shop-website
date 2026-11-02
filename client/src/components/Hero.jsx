@@ -119,7 +119,7 @@ export default function Hero() {
 
           <motion.h1
             variants={item}
-            className="font-heading font-bold text-cream-50 text-3xl sm:text-4xl lg:text-5xl leading-[1.05] drop-shadow-xl"
+            className="font-heading font-bold text-cream-50 text-2xl sm:text-3xl md:text-4xl lg:text-5xl leading-[1.05] drop-shadow-xl"
           >
             Dhull Cosmetic
             <span className="block bg-gradient-to-r from-gold-200 via-gold-400 to-gold-300 bg-clip-text text-transparent">

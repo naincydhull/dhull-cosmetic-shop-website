@@ -14,7 +14,7 @@ export default function SectionTitle({
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: '-50px' }}
       transition={{ duration: 0.6 }}
-      className={`section-title ${centered ? 'text-center' : ''} ${titleClassName} ${className}`}
+      className={`section-title px-2 ${centered ? 'text-center' : ''} ${titleClassName} ${className}`}
     >
       {title}
       {subtitle && (
@@ -23,7 +23,7 @@ export default function SectionTitle({
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-50px' }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className={`section-subtitle ${centered ? 'mx-auto' : ''} ${subtitleClassName}`}
+          className={`section-subtitle px-2 ${centered ? 'mx-auto' : ''} ${subtitleClassName}`}
         >
           {subtitle}
         </motion.p>

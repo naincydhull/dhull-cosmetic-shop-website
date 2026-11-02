@@ -64,19 +64,15 @@ export default function Products() {
       <section className="section-padding bg-cream-200">
         <div className="container-custom">
           {/* Search Bar */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="max-w-xl mx-auto mb-8"
-          >
-            <div className="relative">
+          <div className="flex flex-col sm:flex-row items-center gap-4 w-full max-w-xl mx-auto">
+            <div className="relative flex-1 w-full">
               <FiSearch className="absolute left-4 top-1/2 -translate-y-1/2 text-charcoal-400" size={20} aria-hidden="true" />
               <input
                 type="search"
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
                 placeholder="Search products…"
-                className="input-field pl-12 pr-12"
+                className="input-field pl-12 pr-12 w-full"
                 aria-label="Search products"
               />
               {search && (
@@ -89,7 +85,7 @@ export default function Products() {
                 </button>
               )}
             </div>
-          </motion.div>
+          </div>
 
           {/* Filters */}
           <FilterButtons activeCategory={category} onCategoryChange={handleCategoryChange} />

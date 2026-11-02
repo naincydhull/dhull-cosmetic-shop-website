@@ -5,10 +5,12 @@
 @layer base {
   html {
     scroll-behavior: smooth;
+    overflow-x: hidden;
   }
 
   body {
     @apply font-body text-charcoal-900 bg-cream-50 antialiased;
+    overflow-x: hidden;
   }
 
   h1, h2, h3, h4, h5, h6 {
@@ -26,15 +28,15 @@
   }
 
   .section-padding {
-    @apply py-16 sm:py-20 lg:py-24;
+    @apply py-12 sm:py-16 lg:py-20 xl:py-24;
   }
 
   .section-title {
-    @apply text-3xl sm:text-4xl lg:text-5xl font-heading font-semibold text-charcoal-900;
+    @apply text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-heading font-semibold text-charcoal-900;
   }
 
   .section-subtitle {
-    @apply text-lg sm:text-xl text-charcoal-600 mt-4 max-w-2xl;
+    @apply text-base sm:text-lg lg:text-xl text-charcoal-600 mt-3 sm:mt-4 max-w-2xl;
   }
 
   .btn-primary {
