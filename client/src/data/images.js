@@ -30,6 +30,11 @@ export const categoryImages = {
 };
 
 export const galleryImages = [
+  { url: '/images/pic1.webp', alt: 'Cosmetics and beauty products displayed on the shop shelves' },
+  { url: '/images/pic2.webp', alt: 'Dhull Cosmetic Shop entrance and storefront' },
+  { url: '/images/pic3.webp', alt: 'Beauty and personal care products arranged on shop shelves' },
+  { url: '/images/pic4.webp', alt: 'Products displayed on the shop shelves' },
+  { url: '/images/pic5.webp', alt: 'Cosmetics and personal care products displayed in store' },
   { url: img('photo-1522335789203-aabd1fc54bc9', 900, 1200), alt: 'Assorted cosmetics flat lay on pink background' },
   { url: img('photo-1556228578-8c89e6adf883', 900, 900), alt: 'White skincare bottles lined up neatly' },
   { url: img('photo-1586495777744-4413f21062fa', 900, 1200), alt: 'Red lipstick with makeup brushes' },
