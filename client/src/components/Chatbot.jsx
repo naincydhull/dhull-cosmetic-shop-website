@@ -167,7 +167,7 @@ export default function Chatbot() {
                 <img
                   src="/logo.svg"
                   alt="Dhull Cosmetic Shop Logo - AI Beauty Assistant"
-                  className="h-9 w-9 object-contain"
+                  className="h-full w-full object-contain p-0.5"
                   onError={(e) => { e.currentTarget.style.display = 'none'; }}
                 />
               </div>
@@ -306,7 +306,7 @@ export default function Chatbot() {
             <img
               src="/logo.svg"
               alt="Dhull Cosmetic Shop Chatbot"
-              className="w-10 h-10 rounded-full object-contain bg-white p-1"
+              className="w-11 h-11 rounded-full object-contain bg-white p-1"
             />
         )}
       </motion.button>
