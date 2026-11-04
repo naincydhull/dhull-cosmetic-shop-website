@@ -7,6 +7,7 @@ import WhatsAppFloat from './components/WhatsAppFloat';
 import ScrollToTop from './components/ScrollToTop';
 import CartDrawer from './components/CartDrawer';
 import Chatbot from './components/Chatbot';
+import SchemaMarkup from './components/SchemaMarkup';
 import { CartProvider } from './context/CartContext';
 import { ToastProvider } from './components/Toast';
 import Home from './pages/Home';
@@ -29,6 +30,7 @@ function App() {
     <CartProvider>
       <ToastProvider>
         <div className="min-h-screen flex flex-col">
+          <SchemaMarkup />
           <Navbar />
           <main className="flex-1">
             <AnimatePresence mode="wait">
