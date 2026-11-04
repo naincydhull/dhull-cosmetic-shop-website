@@ -228,6 +228,7 @@ export default function Chatbot() {
               ))}
 
               {loading && (
+                <div className="flex items-start gap-2 justify-start">
                   <div className="h-9 w-9 shrink-0 overflow-hidden rounded-full bg-white flex items-center justify-center ring-1 ring-rose-200 mt-1 p-0.5">
                     <img
                       src="/logo.svg"
