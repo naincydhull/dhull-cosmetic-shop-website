@@ -163,11 +163,11 @@ export default function Chatbot() {
           >
             {/* Header with website logo */}
             <div className="flex items-center gap-3 bg-gradient-to-r from-rose-700 to-plum-800 px-4 py-3 text-white">
-              <div className="h-11 w-11 shrink-0 overflow-hidden rounded-full bg-cream-100 ring-2 ring-gold-400">
+              <div className="h-11 w-11 shrink-0 overflow-hidden rounded-full bg-white flex items-center justify-center ring-2 ring-gold-400">
                 <img
                   src="/logo.svg"
                   alt="Dhull Cosmetic Shop Logo - AI Beauty Assistant"
-                  className="h-full w-full object-cover"
+                  className="h-9 w-9 object-contain"
                   onError={(e) => { e.currentTarget.style.display = 'none'; }}
                 />
               </div>
@@ -305,8 +305,8 @@ export default function Chatbot() {
         ) : (
             <img
               src="/logo.svg"
-              alt="Dhull Cosmetic Shop Chatbot Assistant"
-              className="w-6 h-6 rounded-full"
+              alt="Dhull Cosmetic Shop Chatbot"
+              className="w-10 h-10 rounded-full object-contain bg-white p-1"
             />
         )}
       </motion.button>
