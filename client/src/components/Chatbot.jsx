@@ -205,9 +205,18 @@ export default function Chatbot() {
             {/* Messages */}
             <div ref={scrollRef} className="flex-1 space-y-3 overflow-y-auto bg-blush-50 px-4 py-4">
               {messages.map((msg, i) => (
-                <div key={i} className={`flex ${msg.role === 'user' ? 'justify-end' : 'justify-start'}`}>
+                <div key={i} className={`flex items-start gap-2 ${msg.role === 'user' ? 'justify-end' : 'justify-start'}`}>
+                  {msg.role === 'assistant' && (
+                    <div className="h-8 w-8 shrink-0 overflow-hidden rounded-full bg-white flex items-center justify-center ring-1 ring-rose-200 mt-1">
+                      <img
+                        src="/logo.svg"
+                        alt="Dhull Cosmetic Shop Assistant"
+                        className="h-6 w-6 object-contain"
+                      />
+                    </div>
+                  )}
                   <div
-                    className={`max-w-[85%] whitespace-pre-wrap rounded-2xl px-4 py-2.5 text-sm leading-relaxed shadow-sm ${
+                    className={`max-w-[75%] whitespace-pre-wrap rounded-2xl px-4 py-2.5 text-sm leading-relaxed shadow-sm ${
                       msg.role === 'user'
                         ? 'rounded-br-md bg-rose-500 text-cream-50'
                         : 'rounded-bl-md bg-white text-charcoal-800 ring-1 ring-blush-100'
@@ -219,7 +228,14 @@ export default function Chatbot() {
               ))}
 
               {loading && (
-                <div className="flex justify-start">
+                <div className="flex items-start gap-2 justify-start">
+                  <div className="h-8 w-8 shrink-0 overflow-hidden rounded-full bg-white flex items-center justify-center ring-1 ring-rose-200 mt-1">
+                    <img
+                      src="/logo.svg"
+                      alt="Dhull Cosmetic Shop Assistant"
+                      className="h-6 w-6 object-contain"
+                    />
+                  </div>
                   <div className="flex items-center gap-1.5 rounded-2xl rounded-bl-md bg-white px-4 py-3 shadow-sm ring-1 ring-blush-100" aria-label="Assistant is typing">
                     {[0, 1, 2].map((d) => (
                       <motion.span
