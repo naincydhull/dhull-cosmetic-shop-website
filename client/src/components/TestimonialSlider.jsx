@@ -91,8 +91,8 @@ export default function TestimonialSlider() {
             className="mt-6 flex items-center justify-center gap-4"
           >
               <img
-                src={`https://ui-avatars.com/api/?name=${encodeURIComponent(testimonial.name)}&background=D4A24C&color=6B1030&size=128`}
-                alt={`Customer ${testimonial.name} - Dhull Cosmetic Shop Review`}
+                src={`https://ui-avatars.com/api/?name=${encodeURIComponent(current.name)}&background=D4A24C&color=6B1030&size=128`}
+                alt={`Customer ${current.name} - Dhull Cosmetic Shop Review`}
                 className="w-12 h-12 rounded-full object-cover border-2 border-gold-300"
               />
             <div className="text-left">
