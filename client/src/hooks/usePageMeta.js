@@ -1,7 +1,23 @@
 import { useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 
 export default function usePageMeta({ title, description, keywords } = {}) {
+  const location = useLocation();
+  
   useEffect(() => {
+    const baseUrl = 'https://dhull-cosmetic-shop-website.vercel.app';
+    const canonicalUrl = `${baseUrl}${location.pathname === '/' ? '' : location.pathname}`;
+
+    // Update canonical tag
+    let canonical = document.querySelector('link[rel="canonical"]');
+    if (!canonical) {
+      canonical = document.createElement('link');
+      canonical.setAttribute('rel', 'canonical');
+      document.head.appendChild(canonical);
+    }
+    const previousCanonical = canonical.getAttribute('href');
+    canonical.setAttribute('href', canonicalUrl);
+
     // Update title
     const previousTitle = document.title;
     if (title) {
@@ -39,11 +55,19 @@ export default function usePageMeta({ title, description, keywords } = {}) {
       ogDescription.setAttribute('content', description);
     }
 
+    // Update og:url
+    let ogUrl = document.querySelector('meta[property="og:url"]');
+    if (ogUrl) {
+      ogUrl.setAttribute('content', canonicalUrl);
+    }
+
     // Update twitter:title
     let twitterTitle = document.querySelector('meta[name="twitter:title"]');
     const previousTwitterTitle = twitterTitle?.getAttribute('content');
     if (title && twitterTitle) {
       twitterTitle.setAttribute('content', `${title} | Dhull Cosmetic Shop - Harsola, Kaithal`);
+    } else if (!title && twitterTitle) {
+      twitterTitle.setAttribute('content', 'Dhull Cosmetic Shop - Harsola, Kaithal');
     }
 
     // Update twitter:description
@@ -70,6 +94,9 @@ export default function usePageMeta({ title, description, keywords } = {}) {
       if (previousTwitterDescription && twitterDescription) {
         twitterDescription.setAttribute('content', previousTwitterDescription);
       }
+      if (previousCanonical && canonical) {
+        canonical.setAttribute('href', previousCanonical);
+      }
     };
-  }, [title, description, keywords]);
+  }, [title, description, keywords, location.pathname]);
 }
