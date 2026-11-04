@@ -163,11 +163,11 @@ export default function Chatbot() {
           >
             {/* Header with website logo */}
             <div className="flex items-center gap-3 bg-gradient-to-r from-rose-700 to-plum-800 px-4 py-3 text-white">
-              <div className="h-11 w-11 shrink-0 overflow-hidden rounded-full bg-white flex items-center justify-center ring-2 ring-gold-400">
+              <div className="h-11 w-11 shrink-0 overflow-hidden rounded-full bg-white flex items-center justify-center ring-2 ring-gold-400 p-0.5">
                 <img
                   src="/logo.svg"
                   alt="Dhull Cosmetic Shop Logo - AI Beauty Assistant"
-                  className="h-full w-full object-contain p-0.5"
+                  className="h-full w-full object-contain"
                   onError={(e) => { e.currentTarget.style.display = 'none'; }}
                 />
               </div>
@@ -228,12 +228,11 @@ export default function Chatbot() {
               ))}
 
               {loading && (
-                <div className="flex items-start gap-2 justify-start">
-                  <div className="h-8 w-8 shrink-0 overflow-hidden rounded-full bg-white flex items-center justify-center ring-1 ring-rose-200 mt-1">
+                  <div className="h-8 w-8 shrink-0 overflow-hidden rounded-full bg-white flex items-center justify-center ring-1 ring-rose-200 mt-1 p-0.5">
                     <img
                       src="/logo.svg"
                       alt="Dhull Cosmetic Shop Assistant"
-                      className="h-6 w-6 object-contain"
+                      className="h-full w-full object-contain"
                     />
                   </div>
                   <div className="flex items-center gap-1.5 rounded-2xl rounded-bl-md bg-white px-4 py-3 shadow-sm ring-1 ring-blush-100" aria-label="Assistant is typing">
@@ -322,7 +321,7 @@ export default function Chatbot() {
             <img
               src="/logo.svg"
               alt="Dhull Cosmetic Shop Chatbot"
-              className="w-11 h-11 rounded-full object-contain bg-white p-1"
+              className="w-11 h-11 rounded-full object-contain bg-white p-0.5"
             />
         )}
       </motion.button>
