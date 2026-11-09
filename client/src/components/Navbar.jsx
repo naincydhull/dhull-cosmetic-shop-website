@@ -79,7 +79,7 @@ export default function Navbar() {
               {/* Cart Icon */}
               <Link
                 to="/cart"
-                className="relative p-2 rounded-full text-charcoal-600 hover:text-rose-600 transition-colors"
+                className="relative p-3 rounded-full text-charcoal-600 hover:text-rose-600 transition-colors min-w-[44px] min-h-[44px] flex items-center justify-center"
                 aria-label={`Cart (${totalItems} items)`}
               >
                 <motion.div
@@ -104,7 +104,7 @@ export default function Navbar() {
 <div className="lg:hidden flex items-center gap-4">
               <Link
                 to="/cart"
-                className="relative p-2 rounded-lg text-charcoal-600 hover:text-rose-600 hover:bg-cream-200 transition-colors"
+                className="relative p-3 rounded-lg text-charcoal-600 hover:text-rose-600 hover:bg-cream-200 transition-colors min-w-[44px] min-h-[44px] flex items-center justify-center"
                 aria-label={`Cart (${totalItems} items)`}
               >
                 <FiShoppingCart size={24} aria-hidden="true" />

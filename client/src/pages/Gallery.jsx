@@ -29,14 +29,16 @@ export default function Gallery() {
 
   return (
     <PageTransition>
-      <section className="pt-12 pb-8 bg-gradient-to-br from-blush-100 via-cream-100 to-gold-50">
-        <div className="container-custom text-center">
-          <SectionTitle
-            title="Our Gallery"
-            subtitle="A glimpse of the beauty products waiting for you in store."
-          />
-        </div>
-      </section>
+        <section className="pt-12 pb-8 bg-gradient-to-br from-blush-100 via-cream-100 to-gold-50">
+          <div className="container-custom text-center">
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-heading font-bold text-charcoal-900 mb-2">
+              Our Gallery
+            </h1>
+            <p className="text-charcoal-600 text-lg sm:text-xl">
+              A glimpse of the beauty products waiting for you in store.
+            </p>
+          </div>
+        </section>
 
       <section className="section-padding bg-cream-200">
         <div className="container-custom">

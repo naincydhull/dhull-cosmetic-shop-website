@@ -70,7 +70,8 @@ export default function Hero() {
               }}
             />
           </motion.div>
-        </AnimatePresence>
+          </AnimatePresence>
+        </div>
 
         {/* Left / right arrows */}
         <button

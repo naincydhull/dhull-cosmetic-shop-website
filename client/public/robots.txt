@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://dhull-cosmetic-shop-website.vercel.app/sitemap.xml

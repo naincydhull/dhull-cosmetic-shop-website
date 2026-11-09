@@ -53,22 +53,22 @@ export default function Footer() {
               />
               <span className="font-heading text-2xl font-semibold">Dhull Cosmetic Shop</span>
             </Link>
-            <p className="text-charcoal-300 text-sm leading-relaxed mb-6 max-w-xs">
+            <p className="text-charcoal-200 text-sm leading-relaxed mb-6 max-w-xs">
               Your trusted local beauty destination in Harsola, Kaithal. Offering quality skincare, makeup, haircare, fragrance & nail products at affordable prices since 2010.
             </p>
             <div className="flex flex-wrap gap-3">
-              {socialLinks.map((social) => (
-                <a
-                  key={social.label}
-                  href={social.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label={social.label}
-                  className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-charcoal-300 hover:text-gold-300 hover:bg-white/10 transition-all duration-300"
-                >
-                  <social.icon size={20} aria-hidden="true" />
-                </a>
-              ))}
+  {socialLinks.map((social) => (
+    <a
+      key={social.label}
+      href={social.href}
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label={social.label}
+      className="w-11 h-11 rounded-full bg-white/10 flex items-center justify-center text-charcoal-300 hover:text-gold-300 hover:bg-white/10 transition-all duration-300"
+    >
+      <social.icon size={20} aria-hidden="true" />
+    </a>
+  ))}
             </div>
           </div>
 

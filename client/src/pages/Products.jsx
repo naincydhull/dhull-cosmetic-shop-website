@@ -52,16 +52,18 @@ export default function Products() {
 
   return (
     <PageTransition>
-      <section className="pt-12 pb-8 bg-gradient-to-br from-blush-100 via-cream-100 to-gold-50">
-        <div className="container-custom text-center">
-          <SectionTitle
-            title="Our Products"
-            subtitle="Browse our full collection of genuine beauty and personal care products."
-          />
-        </div>
-      </section>
+        <section className="pt-12 pb-8 bg-gradient-to-br from-blush-100 via-cream-100 to-gold-50">
+          <div className="container-custom text-center">
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-heading font-bold text-charcoal-900 mb-2">
+              Our Products
+            </h1>
+            <p className="text-charcoal-600 text-lg sm:text-xl">
+              Browse our full collection of genuine beauty and personal care products.
+            </p>
+          </div>
+        </section>
 
-      <section className="section-padding bg-cream-200">
+        <section className="section-padding bg-cream-200">
         <div className="container-custom">
           {/* Search Bar */}
           <div className="flex flex-col sm:flex-row items-center gap-4 w-full max-w-xl mx-auto">
