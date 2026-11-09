@@ -65,6 +65,7 @@ export default function Hero() {
               alt={heroSlides[slideIndex].alt}
               className="w-full h-full object-cover object-center brightness-[1.1]"
               loading={slideIndex === 0 ? 'eager' : 'lazy'}
+              fetchpriority={slideIndex === 0 ? 'high' : 'auto'}
               onError={(e) => {
                 e.currentTarget.src = heroSlides[0].url;
               }}

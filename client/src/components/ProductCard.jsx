@@ -78,6 +78,9 @@ const ProductCard = forwardRef(function ProductCard({ product, index = 0, varian
           src={product.image}
           alt={product.alt || product.name}
           loading="lazy"
+          decoding="async"
+          width="400"
+          height="400"
           className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
           onError={(e) => {
             e.currentTarget.src = 'https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=600&h=600&fit=crop';

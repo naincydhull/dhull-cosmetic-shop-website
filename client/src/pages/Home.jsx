@@ -210,7 +210,7 @@ export default function Home() {
               src={heroImages.main}
               alt="Dhull Cosmetic Shop - Beauty Products Display in Harsola Kaithal"
               className="w-full h-full object-cover"
-              loading="lazy"
+              fetchpriority="high"
             />
           <div className="absolute inset-0 bg-gradient-to-r from-rose-900/90 via-rose-800/85 to-plum-900/85" />
         </div>
