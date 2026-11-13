@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
+import * as fm from 'framer-motion';
 import { FiArrowUp } from 'react-icons/fi';
 
-const MotionButton = motion('button');
+const MotionButton = fm.motion('button');
 
 export default function ScrollToTop() {
   const [visible, setVisible] = useState(false);

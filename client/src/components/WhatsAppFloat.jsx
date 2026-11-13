@@ -1,8 +1,9 @@
 import { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import * as fm from 'framer-motion';
 import { FaWhatsapp } from 'react-icons/fa';
 
-const MotionButton = motion('button');
+const MotionButton = fm.motion('button');
+const { AnimatePresence } = fm;
 
 const WHATSAPP_NUMBER = '918053224896';
 const DEFAULT_MESSAGE = "Hi! I'm interested in your products. Could you please share more details?";
@@ -30,7 +31,7 @@ export default function WhatsAppFloat() {
     >
       <AnimatePresence>
         {isExpanded && (
-          <motion.div
+          <fm.motion.div
             initial={{ opacity: 0, y: 10, scale: 0.9 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 10, scale: 0.9 }}
@@ -51,7 +52,7 @@ export default function WhatsAppFloat() {
                 <span className="font-medium text-sm">{option.label}</span>
               </MotionButton>
             ))}
-          </motion.div>
+          </fm.motion.div>
         )}
       </AnimatePresence>
 
@@ -66,9 +67,9 @@ export default function WhatsAppFloat() {
       >
         {/* Pulsing attention ring */}
         <span className="absolute inset-0 rounded-full bg-green-500 animate-ping opacity-40" aria-hidden="true" />
-        <motion.span animate={{ rotate: isExpanded ? 90 : 0 }} transition={{ type: 'spring', stiffness: 400, damping: 20 }} className="relative z-10">
+        <fm.motion.span animate={{ rotate: isExpanded ? 90 : 0 }} transition={{ type: 'spring', stiffness: 400, damping: 20 }} className="relative z-10">
           <FaWhatsapp size={28} aria-hidden="true" />
-        </motion.span>
+        </fm.motion.span>
       </MotionButton>
     </div>
   );

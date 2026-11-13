@@ -1,7 +1,8 @@
-import { motion, memo } from 'react';
+import { memo } from 'react';
+import * as fm from 'framer-motion';
 import { FiArrowRight } from 'react-icons/fi';
 
-const MotionButton = motion('button');
+const MotionButton = fm.motion('button');
 
 const categoryIcons = {
   Skincare: (

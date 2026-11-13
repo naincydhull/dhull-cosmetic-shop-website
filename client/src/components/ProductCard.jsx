@@ -1,10 +1,10 @@
 import { forwardRef, memo, useCallback } from 'react';
-import { motion } from 'framer-motion';
+import * as fm from 'framer-motion';
 import { FiShoppingBag, FiExternalLink, FiHeart, FiPlus, FiMinus, FiCheck } from 'react-icons/fi';
 import { useCart } from '../context/CartContext';
 import { useToast } from './Toast';
 
-const MotionButton = motion('button');
+const MotionButton = fm.motion('button');
 
 const WHATSAPP_NUMBER = '918053224896';
 
@@ -70,7 +70,7 @@ const ProductCard = forwardRef(function ProductCard({ product, index = 0, varian
   const selectedVariant = variants[variant] || variants.default;
 
   return (
-    <motion.article
+    <fm.motion.article
       ref={ref}
       {...selectedVariant}
       whileHover={{ y: -8, boxShadow: '0 25px 50px -12px rgba(236, 72, 153, 0.25)' }}
@@ -163,7 +163,7 @@ const ProductCard = forwardRef(function ProductCard({ product, index = 0, varian
           <FiExternalLink size={14} aria-hidden="true" />
         </a>
       </div>
-    </motion.article>
+    </fm.motion.article>
   );
 });
 

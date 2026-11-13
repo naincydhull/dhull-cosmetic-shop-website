@@ -1,8 +1,8 @@
 import { useState } from 'react';
-import { motion } from 'framer-motion';
+import * as fm from 'framer-motion';
 import { FiCheckCircle, FiAlertCircle, FiLoader } from 'react-icons/fi';
 
-const MotionButton = motion('button');
+const MotionButton = fm.motion('button');
 
 export default function ContactForm() {
   const [formData, setFormData] = useState({
@@ -69,7 +69,7 @@ export default function ContactForm() {
 
   return (
     <form onSubmit={handleSubmit} className="space-y-6" noValidate>
-      <motion.div
+      <fm.motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
@@ -92,10 +92,10 @@ export default function ContactForm() {
             disabled={status === 'submitting'}
           />
           {errors.name && (
-            <motion.p id="name-error" initial={{ opacity: 0, y: -10 }} animate={{ opacity: 1, y: 0 }} className="mt-1 text-sm text-rose-500 flex items-center gap-1" role="alert">
+            <fm.motion.p id="name-error" initial={{ opacity: 0, y: -10 }} animate={{ opacity: 1, y: 0 }} className="mt-1 text-sm text-rose-500 flex items-center gap-1" role="alert">
               <FiAlertCircle size={14} aria-hidden="true" />
               {errors.name}
-            </motion.p>
+            </fm.motion.p>
           )}
         </div>
 
@@ -116,15 +116,15 @@ export default function ContactForm() {
             disabled={status === 'submitting'}
           />
           {errors.phone && (
-            <motion.p id="phone-error" initial={{ opacity: 0, y: -10 }} animate={{ opacity: 1, y: 0 }} className="mt-1 text-sm text-rose-500 flex items-center gap-1" role="alert">
+            <fm.motion.p id="phone-error" initial={{ opacity: 0, y: -10 }} animate={{ opacity: 1, y: 0 }} className="mt-1 text-sm text-rose-500 flex items-center gap-1" role="alert">
               <FiAlertCircle size={14} aria-hidden="true" />
               {errors.phone}
-            </motion.p>
+            </fm.motion.p>
           )}
         </div>
-      </motion.div>
+      </fm.motion.div>
 
-      <motion.div
+      <fm.motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
@@ -145,15 +145,15 @@ export default function ContactForm() {
           disabled={status === 'submitting'}
         />
         {errors.message && (
-          <motion.p id="message-error" initial={{ opacity: 0, y: -10 }} animate={{ opacity: 1, y: 0 }} className="mt-1 text-sm text-rose-500 flex items-center gap-1" role="alert">
+          <fm.motion.p id="message-error" initial={{ opacity: 0, y: -10 }} animate={{ opacity: 1, y: 0 }} className="mt-1 text-sm text-rose-500 flex items-center gap-1" role="alert">
             <FiAlertCircle size={14} aria-hidden="true" />
             {errors.message}
-          </motion.p>
+          </fm.motion.p>
         )}
-      </motion.div>
+      </fm.motion.div>
 
       {status !== 'idle' && (
-        <motion.div
+        <fm.motion.div
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
           className={`p-4 rounded-lg flex items-center gap-3 ${
@@ -168,7 +168,7 @@ export default function ContactForm() {
           )}
           <p>{submitMessage}</p>
           {status === 'submitting' && <FiLoader size={20} className="animate-spin text-rose-500 ml-auto" aria-hidden="true" />}
-        </motion.div>
+        </fm.motion.div>
       )}
 
       <MotionButton

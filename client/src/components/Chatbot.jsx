@@ -1,8 +1,9 @@
 import { useState, useRef, useEffect, useCallback } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import * as fm from 'framer-motion';
 import { FiSend, FiMinus, FiRefreshCw, FiMaximize2, FiMinimize2, FiMessageCircle } from 'react-icons/fi';
 
-const MotionButton = motion('button');
+const MotionButton = fm.motion('button');
+const { AnimatePresence } = fm;
 
 const WELCOME = {
   role: 'assistant',

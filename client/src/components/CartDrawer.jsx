@@ -1,12 +1,13 @@
 import { useEffect, useRef } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import * as fm from 'framer-motion';
 import { FiX, FiTrash2, FiPlus, FiMinus } from 'react-icons/fi';
 import { useCart } from '../context/CartContext';
 import { useToast } from './Toast';
 import CartItem from './CartItem';
 import OrderForm from './OrderForm';
 
-const MotionButton = motion('button');
+const MotionButton = fm.motion('button');
+const { AnimatePresence } = fm;
 
 export default function CartDrawer({ isOpen, onClose }) {
   const { cartItems, totalItems, increaseQty, decreaseQty, removeFromCart, clearCart } = useCart();
@@ -48,7 +49,7 @@ export default function CartDrawer({ isOpen, onClose }) {
 
   return (
     <AnimatePresence>
-      <motion.div
+      <fm.motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
@@ -56,7 +57,7 @@ export default function CartDrawer({ isOpen, onClose }) {
         onClick={onClose}
         aria-hidden="true"
       />
-      <motion.aside
+      <fm.motion.aside
         ref={dialogRef}
         tabIndex={-1}
         initial={{ x: '100%' }}
@@ -72,7 +73,7 @@ export default function CartDrawer({ isOpen, onClose }) {
       >
         {/* Header */}
         <div className="flex items-center justify-between p-4 sm:p-5 border-b border-blush-100 bg-cream-100 sticky top-0 z-10">
-          <motion.h2
+          <fm.motion.h2
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.1 }}
@@ -80,7 +81,7 @@ export default function CartDrawer({ isOpen, onClose }) {
             id="cart-drawer-title"
           >
             Aapka Cart ({totalItems} items)
-          </motion.h2>
+          </fm.motion.h2>
           <MotionButton
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.95 }}
@@ -93,7 +94,7 @@ export default function CartDrawer({ isOpen, onClose }) {
         </div>
 
         {/* Content */}
-        <motion.div
+        <fm.motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2 }}
@@ -101,7 +102,7 @@ export default function CartDrawer({ isOpen, onClose }) {
         >
           {cartItems.length === 0 ? (
             <div className="flex flex-col items-center justify-center h-64 text-center">
-              <motion.div
+              <fm.motion.div
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ type: 'spring', damping: 20, stiffness: 200 }}
@@ -110,7 +111,7 @@ export default function CartDrawer({ isOpen, onClose }) {
                 <svg className="w-10 h-10 text-blush-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M16 11V7a2 2 0 00-2-2H6a2 2 0 00-2 2v14a2 2 0 002 2h8a2 2 0 002-2v-4" />
                 </svg>
-              </motion.div>
+              </fm.motion.div>
               <h3 className="font-heading text-lg font-semibold text-charcoal-900 mb-2">Cart khali hai</h3>
               <p className="text-charcoal-500 text-sm mb-6">Kuch products add karke shopping shuru karein</p>
               <MotionButton
@@ -149,7 +150,7 @@ export default function CartDrawer({ isOpen, onClose }) {
               </div>
             </>
           )}
-        </motion.div>
+        </fm.motion.div>
 
         {/* Order Form - Sticky at bottom when cart has items */}
         {cartItems.length > 0 && (
@@ -157,7 +158,7 @@ export default function CartDrawer({ isOpen, onClose }) {
             <OrderForm onClose={onClose} />
           </div>
         )}
-      </motion.aside>
+      </fm.motion.aside>
     </AnimatePresence>
   );
 }

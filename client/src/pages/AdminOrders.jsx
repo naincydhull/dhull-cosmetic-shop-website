@@ -1,10 +1,10 @@
 import { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
+import * as fm from 'framer-motion';
 import { FiPhone, FiMail, FiEye, FiLock, FiUnlock, FiArrowLeft, FiRefreshCw } from 'react-icons/fi';
 import { useToast } from '../components/Toast';
 import usePageMeta from '../hooks/usePageMeta';
 
-const MotionButton = motion('button');
+const MotionButton = fm.motion('button');
 
 export default function AdminOrders() {
   usePageMeta({
@@ -105,34 +105,34 @@ export default function AdminOrders() {
 
   if (!authenticated) {
     return (
-      <motion.div
+      <fm.motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blush-100 via-cream-100 to-gold-50 px-4 py-12"
       >
         <div className="w-full max-w-md bg-white rounded-2xl shadow-xl p-8 border border-blush-100">
           <div className="text-center mb-8">
-            <motion.div
+            <fm.motion.div
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ type: 'spring', damping: 20, stiffness: 200 }}
               className="w-16 h-16 rounded-2xl bg-rose-500/10 flex items-center justify-center mx-auto mb-4"
             >
               <FiLock className="w-8 h-8 text-rose-500" aria-hidden="true" />
-            </motion.div>
+            </fm.motion.div>
             <h2 className="font-heading text-2xl font-bold text-charcoal-900">Admin Access</h2>
             <p className="text-charcoal-500 mt-2">Enter the admin key to view orders</p>
           </div>
 
           {error && (
-            <motion.div
+            <fm.motion.div
               initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
             className="mb-4 p-3 bg-rose-50 border border-rose-200 rounded-lg text-rose-700 text-sm"
             role="alert"
           >
             {error}
-          </motion.div>
+          </fm.motion.div>
           )}
 
           <form onSubmit={handleAuth} className="space-y-4" noValidate>
@@ -149,14 +149,14 @@ export default function AdminOrders() {
                 disabled={loading}
               />
               {keyError && (
-                <motion.p
+                <fm.motion.p
                   initial={{ opacity: 0, y: -5 }}
                   animate={{ opacity: 1, y: 0 }}
                   className="mt-1 text-sm text-rose-500"
                   role="alert"
                 >
                   {keyError}
-                </motion.p>
+                </fm.motion.p>
               )}
             </div>
 
@@ -184,12 +184,12 @@ export default function AdminOrders() {
             </MotionButton>
           </form>
         </div>
-      </motion.div>
+      </fm.motion.div>
     );
   }
 
   return (
-    <motion.div
+    <fm.motion.div
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       className="min-h-screen bg-gradient-to-br from-blush-100 via-cream-100 to-gold-50"
@@ -238,7 +238,7 @@ export default function AdminOrders() {
         </div>
 
         {loading && orders.length === 0 && (
-          <motion.div
+          <fm.motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             className="flex flex-col items-center justify-center py-24 text-charcoal-400"
@@ -248,11 +248,11 @@ export default function AdminOrders() {
               <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
             </svg>
             <p className="mt-4">Loading orders...</p>
-          </motion.div>
+          </fm.motion.div>
         )}
 
         {orders.length === 0 && !loading && (
-          <motion.div
+          <fm.motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             className="flex flex-col items-center justify-center py-24 text-center bg-white rounded-2xl border border-blush-100"
@@ -262,13 +262,13 @@ export default function AdminOrders() {
             </svg>
             <h3 className="font-heading text-xl font-semibold text-charcoal-900 mt-4">No orders yet</h3>
             <p className="text-charcoal-500 text-sm mt-2">Orders will appear here when customers place them</p>
-          </motion.div>
+          </fm.motion.div>
         )}
 
         {orders.length > 0 && (
           <div className="space-y-4" role="list" aria-label="Orders">
             {orders.map((order, index) => (
-              <motion.article
+              <fm.motion.article
                 key={order.id}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -376,11 +376,11 @@ export default function AdminOrders() {
                     )}
                   </div>
                 </div>
-              </motion.article>
+              </fm.motion.article>
             ))}
           </div>
         )}
       </main>
-    </motion.div>
+    </fm.motion.div>
   );
 }

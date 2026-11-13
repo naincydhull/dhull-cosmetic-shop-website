@@ -1,8 +1,9 @@
 import { useEffect, useCallback, useRef } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import * as fm from 'framer-motion';
 import { FiX, FiChevronLeft, FiChevronRight } from 'react-icons/fi';
 
-const MotionButton = motion('button');
+const MotionButton = fm.motion('button');
+const { AnimatePresence } = fm;
 
 export default function Lightbox({ images, currentIndex, onClose, onNavigate }) {
   const lightboxRef = useRef(null);
@@ -35,7 +36,7 @@ export default function Lightbox({ images, currentIndex, onClose, onNavigate }) 
 
   return (
     <AnimatePresence>
-      <motion.div
+      <fm.motion.div
         ref={lightboxRef}
         tabIndex={-1}
         initial={{ opacity: 0 }}
@@ -67,7 +68,7 @@ export default function Lightbox({ images, currentIndex, onClose, onNavigate }) 
           <FiChevronLeft size={28} aria-hidden="true" />
         </MotionButton>
 
-        <motion.div
+        <fm.motion.div
           initial={{ scale: 0.9, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
           exit={{ scale: 0.9, opacity: 0 }}
@@ -79,7 +80,7 @@ export default function Lightbox({ images, currentIndex, onClose, onNavigate }) 
             alt={currentImage.alt}
             className="max-w-full max-h-[85vh] object-contain rounded-lg shadow-2xl"
           />
-        </motion.div>
+        </fm.motion.div>
 
         <MotionButton
           whileHover={{ scale: 1.1 }}
@@ -92,15 +93,15 @@ export default function Lightbox({ images, currentIndex, onClose, onNavigate }) 
           <FiChevronRight size={28} aria-hidden="true" />
         </MotionButton>
 
-        <motion.div
+        <fm.motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           className="absolute bottom-4 left-1/2 -translate-x-1/2 text-center text-white/70 text-sm"
         >
           <p>{currentIndex + 1} / {images.length}</p>
           <p className="mt-1 text-xs text-white/50">{currentImage.alt}</p>
-        </motion.div>
-      </motion.div>
+        </fm.motion.div>
+      </fm.motion.div>
     </AnimatePresence>
   );
 }

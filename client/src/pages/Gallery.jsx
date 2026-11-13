@@ -1,5 +1,5 @@
 import { useState, useCallback } from 'react';
-import { motion } from 'framer-motion';
+import * as fm from 'framer-motion';
 import { FiZoomIn } from 'react-icons/fi';
 import PageTransition from '../components/PageTransition';
 import SectionTitle from '../components/SectionTitle';
@@ -8,7 +8,7 @@ import { galleryImages } from '../data/images';
 import { fadeUp, staggerContainer } from '../utils/animations';
 import usePageMeta from '../hooks/usePageMeta';
 
-const MotionButton = motion('button');
+const MotionButton = fm.motion('button');
 
 export default function Gallery() {
   usePageMeta({
@@ -44,7 +44,7 @@ export default function Gallery() {
 
       <section className="section-padding bg-cream-200">
         <div className="container-custom">
-          <motion.div
+          <fm.motion.div
             variants={staggerContainer}
             initial="hidden"
             whileInView="visible"
@@ -80,7 +80,7 @@ export default function Gallery() {
                 </p>
               </MotionButton>
             ))}
-          </motion.div>
+          </fm.motion.div>
         </div>
       </section>
 

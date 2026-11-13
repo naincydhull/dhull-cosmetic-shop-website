@@ -1,10 +1,10 @@
 import { useState } from 'react';
-import { motion } from 'framer-motion';
+import * as fm from 'framer-motion';
 import { FiSend, FiCheckCircle, FiAlertCircle } from 'react-icons/fi';
 import { useCart } from '../context/CartContext';
 import { useToast } from './Toast';
 
-const MotionButton = motion('button');
+const MotionButton = fm.motion('button');
 
 export default function OrderForm({ onClose }) {
   const { cartItems, clearCart } = useCart();
@@ -132,7 +132,7 @@ export default function OrderForm({ onClose }) {
   };
 
   return (
-    <motion.div
+    <fm.motion.div
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ delay: 0.3 }}
@@ -147,7 +147,7 @@ export default function OrderForm({ onClose }) {
         </h3>
         
         {submitStatus === 'success' && (
-          <motion.div
+          <fm.motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             className="flex items-center gap-2 p-3 bg-green-50 border border-green-200 rounded-lg text-green-700"
@@ -155,11 +155,11 @@ export default function OrderForm({ onClose }) {
           >
             <FiCheckCircle className="w-5 h-5 flex-shrink-0" aria-hidden="true" />
             <p className="text-sm font-medium">Aapka order shop tak bhej diya gaya hai!</p>
-          </motion.div>
+          </fm.motion.div>
         )}
         
         {submitStatus === 'error' && (
-          <motion.div
+          <fm.motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             className="flex items-center gap-2 p-3 bg-rose-50 border border-rose-200 rounded-lg text-rose-700"
@@ -167,7 +167,7 @@ export default function OrderForm({ onClose }) {
           >
             <FiAlertCircle className="w-5 h-5 flex-shrink-0" aria-hidden="true" />
             <p className="text-sm font-medium">Failed to send order. Please try again.</p>
-          </motion.div>
+          </fm.motion.div>
         )}
 
         <form onSubmit={handleSubmit} className="space-y-4" noValidate>
@@ -187,7 +187,7 @@ export default function OrderForm({ onClose }) {
               aria-describedby={errors.name ? 'name-error' : undefined}
             />
             {errors.name && (
-              <motion.p
+              <fm.motion.p
                 initial={{ opacity: 0, y: -5 }}
                 animate={{ opacity: 1, y: 0 }}
                 id="name-error"
@@ -195,7 +195,7 @@ export default function OrderForm({ onClose }) {
                 role="alert"
               >
                 {errors.name}
-              </motion.p>
+              </fm.motion.p>
             )}
           </div>
 
@@ -216,7 +216,7 @@ export default function OrderForm({ onClose }) {
               aria-describedby={errors.phone ? 'phone-error' : undefined}
             />
             {errors.phone && (
-              <motion.p
+              <fm.motion.p
                 initial={{ opacity: 0, y: -5 }}
                 animate={{ opacity: 1, y: 0 }}
                 id="phone-error"
@@ -224,7 +224,7 @@ export default function OrderForm({ onClose }) {
                 role="alert"
               >
                 {errors.phone}
-              </motion.p>
+              </fm.motion.p>
             )}
           </div>
 
@@ -280,6 +280,6 @@ export default function OrderForm({ onClose }) {
           </MotionButton>
         </form>
       </div>
-    </motion.div>
+    </fm.motion.div>
   );
 }

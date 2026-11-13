@@ -1,8 +1,9 @@
 import React, { createContext, useContext, useState, useCallback } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import * as fm from 'framer-motion';
 import { FiCheckCircle, FiAlertCircle, FiInfo } from 'react-icons/fi';
 
-const MotionButton = motion('button');
+const MotionButton = fm.motion('button');
+const { AnimatePresence } = fm;
 
 const ToastContext = createContext(null);
 
@@ -57,7 +58,7 @@ function Toast({ id, message, type, onClose }) {
   const Icon = icons[type] || icons.success;
 
   return (
-    <motion.div
+    <fm.motion.div
       initial={{ opacity: 0, x: 100, scale: 0.9 }}
       animate={{ opacity: 1, x: 0, scale: 1 }}
       exit={{ opacity: 0, x: 100, scale: 0.9 }}
@@ -80,6 +81,6 @@ function Toast({ id, message, type, onClose }) {
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
         </svg>
       </MotionButton>
-    </motion.div>
+    </fm.motion.div>
   );
 }

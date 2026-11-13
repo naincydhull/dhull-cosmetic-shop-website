@@ -1,9 +1,10 @@
 import { useState, useEffect, useCallback, memo } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import * as fm from 'framer-motion';
 import { FiStar, FiChevronLeft, FiChevronRight } from 'react-icons/fi';
 import { FaQuoteLeft } from 'react-icons/fa';
 
-const MotionButton = motion('button');
+const MotionButton = fm.motion('button');
+const { AnimatePresence } = fm;
 
 const testimonialsData = [
   {
@@ -57,7 +58,7 @@ export default memo(function TestimonialSlider() {
   return (
     <div className="relative max-w-4xl mx-auto">
       <AnimatePresence mode="wait">
-        <motion.div
+        <fm.motion.div
           key={current.id}
           initial={{ opacity: 0, x: direction > 0 ? 50 : -50 }}
           animate={{ opacity: 1, x: 0 }}
@@ -76,7 +77,7 @@ export default memo(function TestimonialSlider() {
             ))}
           </div>
 
-          <motion.blockquote
+          <fm.motion.blockquote
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             className="relative"
@@ -85,9 +86,9 @@ export default memo(function TestimonialSlider() {
             <p className="text-lg sm:text-xl text-charcoal-600 leading-relaxed max-w-3xl mx-auto relative z-10">
               &ldquo;{current.text}&rdquo;
             </p>
-          </motion.blockquote>
+          </fm.motion.blockquote>
 
-          <motion.div
+          <fm.motion.div
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
@@ -106,8 +107,8 @@ export default memo(function TestimonialSlider() {
               <p className="font-heading font-semibold text-charcoal-900">{current.name}</p>
               <p className="text-sm text-charcoal-500">{current.location}</p>
             </div>
-          </motion.div>
-        </motion.div>
+          </fm.motion.div>
+        </fm.motion.div>
       </AnimatePresence>
 
       <div className="flex justify-center gap-3 mt-8">
