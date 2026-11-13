@@ -32,6 +32,8 @@ export default function FilterButtons({ activeCategory, onCategoryChange }) {
     }
   }, [onCategoryChange]);
 
+  const MotionButton = motion('button');
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -44,7 +46,7 @@ export default function FilterButtons({ activeCategory, onCategoryChange }) {
       {categories.map((category, index) => {
         const isActive = activeCategory === category;
         return (
-          <motion.button
+          <MotionButton
             key={category}
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -62,7 +64,7 @@ export default function FilterButtons({ activeCategory, onCategoryChange }) {
             role="radio"
           >
             {category}
-          </motion.button>
+          </MotionButton>
         );
       })}
     </motion.div>
