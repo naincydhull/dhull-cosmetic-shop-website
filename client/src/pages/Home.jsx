@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { motion } from 'framer-motion';
+import * as fm from 'framer-motion';
 import {
   FiArrowRight, FiMessageCircle, FiMapPin, FiClock,
   FiAward, FiTag, FiHeart, FiGrid, FiPhone
@@ -16,6 +16,8 @@ import useProducts from '../hooks/useProducts';
 import { heroImages, categoryImages } from '../data/images';
 import { fadeUp, staggerContainer } from '../utils/animations';
 import usePageMeta from '../hooks/usePageMeta';
+
+const { motion } = fm;
 
 const WHATSAPP_NUMBER = '918053224896';
 const WHATSAPP_LINK = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent("Hello! I'd like to know more about your products.")}`;
@@ -117,7 +119,7 @@ export default function Home() {
             title="Why Choose Us"
             subtitle="More than a shop — a beauty partner you can rely on."
           />
-          <motion.div
+          <fm.motion.div
             variants={staggerContainer}
             initial="hidden"
             whileInView="visible"
@@ -125,7 +127,7 @@ export default function Home() {
             className="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"
           >
             {whyChooseUs.map((item) => (
-              <motion.div
+              <fm.motion.div
                 key={item.title}
                 variants={fadeUp}
                 whileHover={{ y: -8 }}
@@ -136,9 +138,9 @@ export default function Home() {
                 </div>
                 <h3 className="font-heading text-xl font-semibold text-charcoal-900 mb-3">{item.title}</h3>
                 <p className="text-sm text-charcoal-500 leading-relaxed">{item.desc}</p>
-              </motion.div>
+              </fm.motion.div>
             ))}
-          </motion.div>
+          </fm.motion.div>
         </div>
       </section>
 
@@ -163,7 +165,7 @@ export default function Home() {
             subtitle="Find us in the heart of Harsola — we'd love to see you."
           />
           <div className="mt-12 grid lg:grid-cols-2 gap-8 items-stretch">
-            <motion.div
+            <fm.motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -196,7 +198,7 @@ export default function Home() {
                   <a href="tel:+918053224896" className="text-charcoal-500 hover:text-rose-600 transition-colors mt-1 block">8053224896</a>
                 </div>
               </div>
-            </motion.div>
+            </fm.motion.div>
 
             <GoogleMap className="min-h-[360px] lg:min-h-full h-full" />
           </div>
@@ -218,15 +220,15 @@ export default function Home() {
           <div className="absolute inset-0 bg-gradient-to-r from-rose-900/90 via-rose-800/85 to-plum-900/85" />
         </div>
         <div className="container-custom relative z-10 section-padding text-center text-white">
-          <motion.h2
+          <fm.motion.h2
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             className="text-3xl sm:text-4xl lg:text-5xl font-heading font-bold"
           >
             Visit our shop or message us on WhatsApp
-          </motion.h2>
-          <motion.p
+          </fm.motion.h2>
+          <fm.motion.p
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -234,8 +236,8 @@ export default function Home() {
             className="mt-4 text-lg text-rose-100 max-w-2xl mx-auto"
           >
             Can't decide? Send us a message and we'll help you find exactly what you need.
-          </motion.p>
-          <motion.div
+          </fm.motion.p>
+          <fm.motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -250,7 +252,7 @@ export default function Home() {
               <FiMessageCircle className="mr-2" aria-hidden="true" />
               Contact Us
             </Link>
-          </motion.div>
+          </fm.motion.div>
         </div>
       </section>
     </div>

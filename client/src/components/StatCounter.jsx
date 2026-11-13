@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import { motion } from 'framer-motion';
+import * as fm from 'framer-motion';
 
 /**
  * Animates a number from 0 to `value` when it scrolls into view.
@@ -57,7 +57,7 @@ export default function StatCounter({ value, suffix = '', prefix = '', duration 
   const displayValue = isPlainNumber ? `${prefix}${count}${suffix}` : raw;
 
   return (
-    <motion.div
+    <fm.motion.div
       ref={ref}
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
@@ -67,6 +67,6 @@ export default function StatCounter({ value, suffix = '', prefix = '', duration 
       <div className="font-heading text-4xl sm:text-5xl lg:text-6xl font-bold gradient-text">
         {displayValue}
       </div>
-    </motion.div>
+    </fm.motion.div>
   );
 }

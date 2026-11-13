@@ -1,8 +1,10 @@
-import { motion } from 'framer-motion';
+import * as fm from 'framer-motion';
 import AboutSection from '../components/About';
 import usePageMeta from '../hooks/usePageMeta';
 import { Link } from 'react-router-dom';
 import { FiArrowRight } from 'react-icons/fi';
+
+const { motion } = fm;
 
 export default function About() {
   usePageMeta({
@@ -28,15 +30,15 @@ export default function About() {
           <div className="absolute inset-0 bg-gradient-to-r from-rose-900/90 via-rose-800/85 to-plum-900/85" />
         </div>
         <div className="container-custom relative z-10 py-20 lg:py-28 text-center text-white">
-          <motion.h1
+          <fm.motion.h1
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             className="text-3xl sm:text-4xl lg:text-5xl font-heading font-bold"
           >
             About Us
-          </motion.h1>
-          <motion.p
+          </fm.motion.h1>
+          <fm.motion.p
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -44,7 +46,7 @@ export default function About() {
             className="mt-4 text-white/80 text-lg"
           >
             Our story, values & commitment to beauty
-          </motion.p>
+          </fm.motion.p>
         </div>
       </section>
 

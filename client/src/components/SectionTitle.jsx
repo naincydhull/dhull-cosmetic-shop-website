@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion';
+import * as fm from 'framer-motion';
 
 export default function SectionTitle({ 
   title, 
@@ -12,7 +12,7 @@ export default function SectionTitle({
   const Tag = level === 1 ? 'h1' : level === 3 ? 'h3' : level === 4 ? 'h4' : level === 5 ? 'h5' : level === 6 ? 'h6' : 'h2';
 
   return (
-    <motion.div
+    <fm.motion.div
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: '-50px' }}
@@ -21,7 +21,7 @@ export default function SectionTitle({
     >
       <Tag className={`${titleClassName} ${centered ? 'mx-auto' : ''}`}>{title}</Tag>
       {subtitle && (
-        <motion.p
+        <fm.motion.p
           initial={{ opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-50px' }}
@@ -29,8 +29,8 @@ export default function SectionTitle({
           className={`section-subtitle px-2 ${centered ? 'mx-auto' : ''} ${subtitleClassName}`}
         >
           {subtitle}
-        </motion.p>
+        </fm.motion.p>
       )}
-    </motion.div>
+    </fm.motion.div>
   );
 }

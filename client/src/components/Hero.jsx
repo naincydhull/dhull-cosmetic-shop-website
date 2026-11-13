@@ -1,9 +1,11 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { motion, AnimatePresence } from 'framer-motion';
+import * as fm from 'framer-motion';
 import { FiShoppingBag, FiClock, FiPhone, FiMapPin, FiStar, FiChevronLeft, FiChevronRight } from 'react-icons/fi';
 import { FaWhatsapp } from 'react-icons/fa';
 import { heroSlides } from '../data/images';
+
+const { motion, AnimatePresence } = fm;
 
 const WHATSAPP_LINK = `https://wa.me/918053224896?text=${encodeURIComponent("Hello! I'd like to know more about your products.")}`;
 

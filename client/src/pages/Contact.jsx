@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion';
+import * as fm from 'framer-motion';
 import { FiPhone, FiMapPin, FiClock, FiMail, FiSend } from 'react-icons/fi';
 import { FaWhatsapp } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
@@ -8,6 +8,8 @@ import ContactForm from '../components/ContactForm';
 import GoogleMap from '../components/GoogleMap';
 import { fadeUp, staggerContainer } from '../utils/animations';
 import usePageMeta from '../hooks/usePageMeta';
+
+const { motion } = fm;
 
 const WHATSAPP_NUMBER = '918053224896';
 const WHATSAPP_LINK = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent("Hello! I'd like to get in touch with Dhull Cosmetic Shop.")}`;
@@ -62,7 +64,7 @@ export default function Contact() {
 
       <section className="section-padding bg-cream-200">
         <div className="container-custom">
-          <motion.div
+          <fm.motion.div
             variants={staggerContainer}
             initial="hidden"
             whileInView="visible"
@@ -82,7 +84,7 @@ export default function Contact() {
               );
 
               return (
-                <motion.div key={card.title} variants={fadeUp} whileHover={{ y: -6 }}>
+                <fm.motion.div key={card.title} variants={fadeUp} whileHover={{ y: -6 }}>
                   {card.href ? (
                     <a
                       href={card.href}
@@ -95,13 +97,13 @@ export default function Contact() {
                   ) : (
                     <div className="card-base p-6 group h-full">{content}</div>
                   )}
-                </motion.div>
+                </fm.motion.div>
               );
             })}
-          </motion.div>
+          </fm.motion.div>
 
           <div className="grid lg:grid-cols-2 gap-12 items-start">
-            <motion.div
+            <fm.motion.div
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
@@ -117,9 +119,9 @@ export default function Contact() {
                 </div>
               </div>
               <ContactForm />
-            </motion.div>
+            </fm.motion.div>
 
-            <motion.div
+            <fm.motion.div
               initial={{ opacity: 0, x: 30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
@@ -147,7 +149,7 @@ export default function Contact() {
                   <span>Or just walk in! We're open every day from 9 AM to 7 PM at Harsola, Kaithal. Browse our <Link to="/products" className="text-rose-600 hover:underline">products</Link> or <Link to="/gallery" className="text-rose-600 hover:underline">gallery</Link>.</span>
                 </div>
               </div>
-            </motion.div>
+            </fm.motion.div>
           </div>
         </div>
       </section>

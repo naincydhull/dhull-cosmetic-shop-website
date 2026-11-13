@@ -1,5 +1,5 @@
 import { useState, useCallback } from 'react';
-import { motion } from 'framer-motion';
+import * as fm from 'framer-motion';
 
 const categories = [
   'All',
@@ -32,10 +32,10 @@ export default function FilterButtons({ activeCategory, onCategoryChange }) {
     }
   }, [onCategoryChange]);
 
-  const MotionButton = motion('button');
+  const MotionButton = fm.motion('button');
 
   return (
-    <motion.div
+    <fm.motion.div
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
@@ -67,6 +67,6 @@ export default function FilterButtons({ activeCategory, onCategoryChange }) {
           </MotionButton>
         );
       })}
-    </motion.div>
+    </fm.motion.div>
   );
 }

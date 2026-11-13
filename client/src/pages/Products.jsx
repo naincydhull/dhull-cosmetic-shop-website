@@ -1,6 +1,6 @@
 import { useState, useEffect, useMemo } from 'react';
 import { useSearchParams } from 'react-router-dom';
-import { motion, AnimatePresence } from 'framer-motion';
+import * as fm from 'framer-motion';
 import { FiSearch, FiX, FiLoader, FiPackage } from 'react-icons/fi';
 import { FaWhatsapp } from 'react-icons/fa';
 import PageTransition from '../components/PageTransition';
@@ -9,6 +9,8 @@ import ProductCard from '../components/ProductCard';
 import FilterButtons from '../components/FilterButtons';
 import useProducts from '../hooks/useProducts';
 import usePageMeta from '../hooks/usePageMeta';
+
+const { motion, AnimatePresence } = fm;
 
 const WHATSAPP_NUMBER = '918053224896';
 
@@ -126,7 +128,7 @@ export default function Products() {
               </a>
             </div>
           ) : (
-            <motion.div
+            <fm.motion.div
               layout
               className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6"
             >
@@ -135,11 +137,11 @@ export default function Products() {
                   <ProductCard key={product.id} product={product} index={i} variant="grid" />
                 ))}
               </AnimatePresence>
-            </motion.div>
+            </fm.motion.div>
           )}
 
           {!loading && products.length > 0 && (
-            <motion.div
+            <fm.motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -160,7 +162,7 @@ export default function Products() {
                 <FaWhatsapp className="mr-2" aria-hidden="true" />
                 Ask on WhatsApp
               </a>
-            </motion.div>
+            </fm.motion.div>
           )}
         </div>
       </section>

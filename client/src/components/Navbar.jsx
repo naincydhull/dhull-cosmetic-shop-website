@@ -1,8 +1,10 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { motion, AnimatePresence } from 'framer-motion';
+import * as fm from 'framer-motion';
 import { FiMenu, FiX, FiShoppingCart } from 'react-icons/fi';
 import { useCart } from '../context/CartContext';
+
+const { motion, AnimatePresence } = fm;
 
 const navLinks = [
   { path: '/', label: 'Home' },
@@ -61,7 +63,7 @@ export default function Navbar() {
                   }`}
                 >
                   {link.label}
-                  <motion.span
+                  <fm.motion.span
                     layoutId="underline"
                     className={`absolute bottom-0 left-0 h-0.5 rounded-full bg-gold-500 ${
                       location.pathname === link.path ? 'w-full' : 'w-0'
@@ -82,21 +84,21 @@ export default function Navbar() {
                 className="relative p-3 rounded-full text-charcoal-600 hover:text-rose-600 transition-colors min-w-[44px] min-h-[44px] flex items-center justify-center"
                 aria-label={`Cart (${totalItems} items)`}
               >
-                <motion.div
+                <fm.motion.div
                   animate={{ scale: totalItems > 0 ? [1, 1.2, 1] : 1 }}
                   transition={{ duration: 0.3 }}
                 >
                   <FiShoppingCart size={24} aria-hidden="true" />
-                </motion.div>
+                </fm.motion.div>
                 {totalItems > 0 && (
-                  <motion.span
+                  <fm.motion.span
                     initial={{ scale: 0 }}
                     animate={{ scale: 1 }}
                     transition={{ type: 'spring', stiffness: 500, damping: 20 }}
                     className="absolute -top-1 -right-1 w-5 h-5 rounded-full bg-rose-500 text-cream-50 text-[10px] font-bold flex items-center justify-center"
                   >
                     {totalItems > 99 ? '99+' : totalItems}
-                  </motion.span>
+                  </fm.motion.span>
                 )}
               </Link>
             </div>
@@ -109,14 +111,14 @@ export default function Navbar() {
               >
                 <FiShoppingCart size={24} aria-hidden="true" />
                 {totalItems > 0 && (
-                  <motion.span
+                  <fm.motion.span
                     initial={{ scale: 0 }}
                     animate={{ scale: 1 }}
                     transition={{ type: 'spring', stiffness: 500, damping: 20 }}
                     className="absolute -top-1 -right-1 w-5 h-5 rounded-full bg-rose-500 text-cream-50 text-[10px] font-bold flex items-center justify-center"
                   >
                     {totalItems > 99 ? '99+' : totalItems}
-                  </motion.span>
+                  </fm.motion.span>
                 )}
               </Link>
               <button
@@ -133,7 +135,7 @@ export default function Navbar() {
 
 <AnimatePresence>
             {isOpen && (
-              <motion.div
+              <fm.motion.div
                 id="mobile-menu"
                 initial={{ opacity: 0, height: 0 }}
                 animate={{ opacity: 1, height: 'auto' }}
@@ -173,7 +175,7 @@ export default function Navbar() {
                     Shop Now
                   </Link>
                 </div>
-              </motion.div>
+              </fm.motion.div>
             )}
           </AnimatePresence>
         </nav>

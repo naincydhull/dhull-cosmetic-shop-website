@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion';
+import * as fm from 'framer-motion';
 import SectionTitle from './SectionTitle';
 import { FiAward, FiTag, FiUsers, FiPackage, FiCheckCircle } from 'react-icons/fi';
 import { heroImages, categoryImages } from '../data/images';
@@ -35,7 +35,7 @@ export default function About() {
     <section id="about" className="section-padding bg-cream-100">
       <div className="container-custom">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-          <motion.div
+          <fm.motion.div
             initial={{ opacity: 0, x: -40 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: '-100px' }}
@@ -55,9 +55,9 @@ export default function About() {
               <p className="font-heading text-3xl font-bold">10+</p>
               <p className="text-sm text-cream-50/80">Years of serving our community with trust</p>
             </div>
-          </motion.div>
+          </fm.motion.div>
 
-          <motion.div
+          <fm.motion.div
             initial={{ opacity: 0, x: 40 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: '-100px' }}
@@ -82,7 +82,7 @@ export default function About() {
 
             <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 gap-5">
               {highlights.map((item) => (
-                <motion.div
+                <fm.motion.div
                   key={item.title}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
@@ -95,10 +95,10 @@ export default function About() {
                   </div>
                   <h2 className="font-heading text-lg font-semibold text-charcoal-900 mb-2">{item.title}</h2>
                   <p className="text-sm text-charcoal-500 leading-relaxed">{item.desc}</p>
-                </motion.div>
+                </fm.motion.div>
               ))}
             </div>
-          </motion.div>
+          </fm.motion.div>
         </div>
       </div>
     </section>
