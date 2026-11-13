@@ -1,4 +1,4 @@
-import { forwardRef } from 'react';
+import { forwardRef, memo, useCallback } from 'react';
 import { motion } from 'framer-motion';
 import { FiShoppingBag, FiExternalLink, FiHeart, FiPlus, FiMinus, FiCheck } from 'react-icons/fi';
 import { useCart } from '../context/CartContext';
@@ -10,16 +10,17 @@ const ProductCard = forwardRef(function ProductCard({ product, index = 0, varian
   const { addToCart, removeFromCart, increaseQty, decreaseQty, cartItems } = useCart();
   const { addToast } = useToast();
 
-  const whatsappMessage = encodeURIComponent(
+  const whatsappMessage = useCallback(() => encodeURIComponent(
     `Hi! I'm interested in "${product.name}". Could you please share more details and availability?`
-  );
-  const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${whatsappMessage}`;
+  ), [product.name]);
+
+  const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${whatsappMessage()}`;
 
   const cartItem = cartItems.find(item => item.id === product.id);
   const quantity = cartItem ? cartItem.quantity : 0;
   const isInCart = quantity > 0;
 
-  const handleAddToCart = (e) => {
+  const handleAddToCart = useCallback((e) => {
     e.preventDefault();
     e.stopPropagation();
     addToCart(product);
@@ -27,15 +28,15 @@ const ProductCard = forwardRef(function ProductCard({ product, index = 0, varian
     if (typeof window !== 'undefined' && window.__CART_DRAWER_OPEN__) {
       window.__CART_DRAWER_OPEN__();
     }
-  };
+  }, [product, addToCart, addToast]);
 
-  const handleIncrease = (e) => {
+  const handleIncrease = useCallback((e) => {
     e.preventDefault();
     e.stopPropagation();
     increaseQty(product.id);
-  };
+  }, [product.id, increaseQty]);
 
-  const handleDecrease = (e) => {
+  const handleDecrease = useCallback((e) => {
     e.preventDefault();
     e.stopPropagation();
     if (quantity > 1) {
@@ -43,13 +44,13 @@ const ProductCard = forwardRef(function ProductCard({ product, index = 0, varian
     } else {
       removeFromCart(product.id);
     }
-  };
+  }, [quantity, product.id, decreaseQty, removeFromCart]);
 
-  const handleRemove = (e) => {
+  const handleRemove = useCallback((e) => {
     e.preventDefault();
     e.stopPropagation();
     removeFromCart(product.id);
-  };
+  }, [product.id, removeFromCart]);
 
   const variants = {
     default: {
@@ -164,4 +165,4 @@ const ProductCard = forwardRef(function ProductCard({ product, index = 0, varian
   );
 });
 
-export default ProductCard;
+export default memo(ProductCard);

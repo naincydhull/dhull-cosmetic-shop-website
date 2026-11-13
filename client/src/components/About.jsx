@@ -93,7 +93,7 @@ export default function About() {
                   <div className={`inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-gradient-to-br ${item.color} text-white mb-4 shadow-lg group-hover:scale-110 transition-transform duration-300`}>
                     <item.icon size={26} aria-hidden="true" />
                   </div>
-                  <h3 className="font-heading text-lg font-semibold text-charcoal-900 mb-2">{item.title}</h3>
+                  <h2 className="font-heading text-lg font-semibold text-charcoal-900 mb-2">{item.title}</h2>
                   <p className="text-sm text-charcoal-500 leading-relaxed">{item.desc}</p>
                 </motion.div>
               ))}

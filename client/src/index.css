@@ -36,6 +36,14 @@
   ::selection {
     @apply bg-rose-500 text-cream-50;
   }
+
+  :focus-visible {
+    @apply outline-none ring-2 ring-rose-500 ring-offset-2 ring-offset-cream-50;
+  }
+
+  .skip-link {
+    @apply sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-rose-500 focus:text-cream-50 focus:font-semibold focus:rounded focus:ring-2 focus:ring-offset-2;
+  }
 }
 
 @layer components {
@@ -58,19 +66,19 @@
   .btn-primary {
     @apply inline-flex items-center justify-center px-8 py-3 bg-rose-500 text-cream-50 font-semibold rounded-full
            hover:bg-rose-400 hover:shadow-lg hover:shadow-rose-500/30 transition-all duration-300
-           focus:outline-none focus:ring-2 focus:ring-rose-500 focus:ring-offset-2 focus:ring-offset-cream-50;
+           focus-visible:ring-2 focus-visible:ring-rose-500 focus-visible:ring-offset-2 focus-visible:ring-offset-cream-50;
   }
 
   .btn-secondary {
     @apply inline-flex items-center justify-center px-8 py-3 border-2 border-rose-500 text-rose-600 font-semibold rounded-full
            hover:bg-rose-50 hover:shadow-lg hover:shadow-rose-500/20 transition-all duration-300
-           focus:outline-none focus:ring-2 focus:ring-rose-500 focus:ring-offset-2 focus:ring-offset-cream-50;
+           focus-visible:ring-2 focus-visible:ring-rose-500 focus-visible:ring-offset-2 focus-visible:ring-offset-cream-50;
   }
 
   .btn-gold {
     @apply inline-flex items-center justify-center px-8 py-3 bg-gold-500 text-cream-50 font-semibold rounded-full
            hover:bg-gold-600 hover:shadow-lg hover:shadow-gold-500/30 transition-all duration-300
-           focus:outline-none focus:ring-2 focus:ring-gold-500 focus:ring-offset-2 focus:ring-offset-cream-50;
+           focus-visible:ring-2 focus-visible:ring-gold-500 focus-visible:ring-offset-2 focus-visible:ring-offset-cream-50;
   }
 
   .card-base {
@@ -80,7 +88,7 @@
 
   .input-field {
     @apply w-full px-4 py-3 bg-cream-200 border border-blush-200 rounded-lg text-charcoal-900
-           focus:outline-none focus:ring-2 focus:ring-rose-500 focus:border-transparent
+           focus-visible:ring-2 focus-visible:ring-rose-500 focus-visible:border-transparent
            placeholder:text-charcoal-500 transition-all duration-300;
   }
 
@@ -115,7 +123,10 @@
   }
 
   .gradient-text {
-    @apply bg-gradient-to-r from-rose-600 via-rose-500 to-gold-500 bg-clip-text text-transparent;
+    background: linear-gradient(to right, #B91C1C, #D97706, #CA8A04);
+    -webkit-background-clip: text;
+    color: #6B1030;
+    -webkit-text-fill-color: transparent;
   }
 
   .glass {

@@ -66,6 +66,9 @@ export default function Hero() {
               className="w-full h-full object-cover object-center brightness-[1.1]"
               loading={slideIndex === 0 ? 'eager' : 'lazy'}
               fetchpriority={slideIndex === 0 ? 'high' : 'auto'}
+              decoding="async"
+              width="1600"
+              height="900"
               onError={(e) => {
                 e.currentTarget.src = heroSlides[0].url;
               }}
@@ -106,7 +109,6 @@ export default function Hero() {
             <FiStar size={sparkle.size} aria-hidden="true" />
           </motion.div>
         ))}
-      </div>
 
       {/* Content */}
       <div className="container-custom relative z-10 py-10 lg:py-12 text-center">

@@ -17,18 +17,27 @@ export default defineConfig({
     outDir: 'dist',
     sourcemap: false,
     minify: 'esbuild',
+    cssCodeSplit: true,
     rollupOptions: {
       output: {
         manualChunks: {
           vendor: ['react', 'react-dom', 'react-router-dom'],
           motion: ['framer-motion'],
-          icons: ['react-icons']
-        }
-      }
+          icons: ['react-icons'],
+          pages: [
+            './src/pages/Home.jsx',
+            './src/pages/About.jsx',
+            './src/pages/Products.jsx',
+            './src/pages/Gallery.jsx',
+            './src/pages/Contact.jsx',
+          ],
+        },
+      },
     },
-    chunkSizeWarningLimit: 1000
+    chunkSizeWarningLimit: 600,
+    reportCompressedSize: false,
   },
   optimizeDeps: {
-    include: ['react', 'react-dom', 'react-router-dom', 'framer-motion']
-  }
+    include: ['react', 'react-dom', 'react-router-dom', 'framer-motion'],
+  },
 });

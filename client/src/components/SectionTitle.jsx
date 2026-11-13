@@ -6,8 +6,11 @@ export default function SectionTitle({
   centered = true, 
   className = '',
   titleClassName = '',
-  subtitleClassName = ''
+  subtitleClassName = '',
+  level = 2
 }) {
+  const Tag = level === 1 ? 'h1' : level === 3 ? 'h3' : level === 4 ? 'h4' : level === 5 ? 'h5' : level === 6 ? 'h6' : 'h2';
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -16,7 +19,7 @@ export default function SectionTitle({
       transition={{ duration: 0.6 }}
       className={`section-title px-2 ${centered ? 'text-center' : ''} ${titleClassName} ${className}`}
     >
-      {title}
+      <Tag className={`${titleClassName} ${centered ? 'mx-auto' : ''}`}>{title}</Tag>
       {subtitle && (
         <motion.p
           initial={{ opacity: 0, y: 10 }}

@@ -1,8 +1,11 @@
-import { useEffect, useCallback } from 'react';
+import { useEffect, useCallback, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FiX, FiChevronLeft, FiChevronRight } from 'react-icons/fi';
 
 export default function Lightbox({ images, currentIndex, onClose, onNavigate }) {
+  const lightboxRef = useRef(null);
+  const previousFocusRef = useRef(null);
+
   const handleKeyDown = useCallback((e) => {
     if (e.key === 'Escape') onClose();
     if (e.key === 'ArrowLeft') onNavigate('prev');
@@ -10,11 +13,19 @@ export default function Lightbox({ images, currentIndex, onClose, onNavigate }) 
   }, [onClose, onNavigate]);
 
   useEffect(() => {
+    previousFocusRef.current = document.activeElement;
     document.addEventListener('keydown', handleKeyDown);
     document.body.style.overflow = 'hidden';
+    const lightbox = lightboxRef.current;
+    if (lightbox) {
+      lightbox.focus();
+    }
     return () => {
       document.removeEventListener('keydown', handleKeyDown);
       document.body.style.overflow = '';
+      if (previousFocusRef.current) {
+        previousFocusRef.current.focus();
+      }
     };
   }, [handleKeyDown]);
 
@@ -23,6 +34,8 @@ export default function Lightbox({ images, currentIndex, onClose, onNavigate }) 
   return (
     <AnimatePresence>
       <motion.div
+        ref={lightboxRef}
+        tabIndex={-1}
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}

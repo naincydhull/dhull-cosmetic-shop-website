@@ -20,6 +20,10 @@ export default function About() {
             alt="Dhull Cosmetic Shop Interior - Beauty Products Display Harsola Kaithal"
             className="w-full h-full object-cover brightness-[0.4]"
             loading="eager"
+            fetchpriority="high"
+            decoding="async"
+            width="1600"
+            height="900"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-rose-900/90 via-rose-800/85 to-plum-900/85" />
         </div>

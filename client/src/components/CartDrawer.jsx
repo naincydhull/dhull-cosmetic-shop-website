@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FiX, FiTrash2, FiPlus, FiMinus } from 'react-icons/fi';
 import { useCart } from '../context/CartContext';
@@ -9,12 +9,22 @@ import OrderForm from './OrderForm';
 export default function CartDrawer({ isOpen, onClose }) {
   const { cartItems, totalItems, increaseQty, decreaseQty, removeFromCart, clearCart } = useCart();
   const { addToast } = useToast();
+  const dialogRef = useRef(null);
+  const previousFocusRef = useRef(null);
 
   useEffect(() => {
     if (isOpen) {
+      previousFocusRef.current = document.activeElement;
       document.body.style.overflow = 'hidden';
+      const dialog = dialogRef.current;
+      if (dialog) {
+        dialog.focus();
+      }
     } else {
       document.body.style.overflow = '';
+      if (previousFocusRef.current) {
+        previousFocusRef.current.focus();
+      }
     }
     return () => {
       document.body.style.overflow = '';
@@ -45,6 +55,8 @@ export default function CartDrawer({ isOpen, onClose }) {
         aria-hidden="true"
       />
       <motion.aside
+        ref={dialogRef}
+        tabIndex={-1}
         initial={{ x: '100%' }}
         animate={{ x: 0 }}
         exit={{ x: '100%' }}
@@ -52,8 +64,9 @@ export default function CartDrawer({ isOpen, onClose }) {
         className="fixed top-0 right-0 z-50 w-full max-w-md h-full bg-cream-50 flex flex-col shadow-2xl"
         onClick={(e) => e.stopPropagation()}
         role="dialog"
-        aria-label="Shopping cart"
         aria-modal="true"
+        aria-labelledby="cart-drawer-title"
+        aria-label="Shopping cart"
       >
         {/* Header */}
         <div className="flex items-center justify-between p-4 sm:p-5 border-b border-blush-100 bg-cream-100 sticky top-0 z-10">
@@ -62,6 +75,7 @@ export default function CartDrawer({ isOpen, onClose }) {
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.1 }}
             className="font-heading text-lg sm:text-xl font-semibold text-charcoal-900"
+            id="cart-drawer-title"
           >
             Aapka Cart ({totalItems} items)
           </motion.h2>
@@ -81,7 +95,7 @@ export default function CartDrawer({ isOpen, onClose }) {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2 }}
-          className="flex-1 overflow-y-auto p-4 sm:p-5 space-y-4"
+          className="flex-1 overflow-y-auto p-4 sm:p-5 space-y-4 pb-40"
         >
           {cartItems.length === 0 ? (
             <div className="flex flex-col items-center justify-center h-64 text-center">
@@ -133,11 +147,14 @@ export default function CartDrawer({ isOpen, onClose }) {
               </div>
             </>
           )}
-
-          {cartItems.length > 0 && (
-            <OrderForm onClose={onClose} />
-          )}
         </motion.div>
+
+        {/* Order Form - Sticky at bottom when cart has items */}
+        {cartItems.length > 0 && (
+          <div className="sticky bottom-0 bg-cream-50/95 backdrop-blur-sm border-t border-blush-100 p-4 sm:p-5 shadow-xl z-10">
+            <OrderForm onClose={onClose} />
+          </div>
+        )}
       </motion.aside>
     </AnimatePresence>
   );

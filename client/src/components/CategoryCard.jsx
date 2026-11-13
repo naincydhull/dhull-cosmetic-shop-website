@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion';
+import { motion, memo } from 'react';
 import { FiArrowRight } from 'react-icons/fi';
 
 const categoryIcons = {
@@ -58,7 +58,7 @@ const categoryColors = {
   More: 'from-charcoal-400 to-charcoal-600',
 };
 
-export default function CategoryCard({ category, productCount, index = 0, onClick }) {
+export default memo(function CategoryCard({ category, productCount, index = 0, onClick }) {
   const Icon = categoryIcons[category] || categoryIcons.More;
   const gradient = categoryColors[category] || categoryColors.More;
 
@@ -89,4 +89,4 @@ export default function CategoryCard({ category, productCount, index = 0, onClic
       </div>
     </motion.button>
   );
-}
+});

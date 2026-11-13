@@ -58,16 +58,16 @@ export default function Footer() {
             </p>
             <div className="flex flex-wrap gap-3">
   {socialLinks.map((social) => (
-    <a
-      key={social.label}
-      href={social.href}
-      target="_blank"
-      rel="noopener noreferrer"
-      aria-label={social.label}
-      className="w-11 h-11 rounded-full bg-white/10 flex items-center justify-center text-charcoal-300 hover:text-gold-300 hover:bg-white/10 transition-all duration-300"
-    >
-      <social.icon size={20} aria-hidden="true" />
-    </a>
+      <a
+        key={social.label}
+        href={social.href}
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label={`${social.label} (opens in new window)`}
+        className="w-11 h-11 rounded-full bg-white/10 flex items-center justify-center text-charcoal-300 hover:text-gold-300 hover:bg-white/10 transition-all duration-300"
+      >
+        <social.icon size={20} aria-hidden="true" />
+      </a>
   ))}
             </div>
           </div>
@@ -119,7 +119,7 @@ export default function Footer() {
               </div>
               <div className="flex items-center gap-3">
                 <FiMail className="text-gold-300 flex-shrink-0" aria-hidden="true" />
-                <a href={`https://wa.me/91${shopInfo.whatsapp}`} target="_blank" rel="noopener noreferrer" className="hover:text-rose-300 transition-colors">WhatsApp Us</a>
+                <a href={`https://wa.me/91${shopInfo.whatsapp}`} target="_blank" rel="noopener noreferrer" className="hover:text-rose-300 transition-colors" aria-label="WhatsApp Us (opens in new window)">WhatsApp Us</a>
               </div>
               <div className="flex items-center gap-3">
                 <FiClock className="text-gold-300 flex-shrink-0" aria-hidden="true" />

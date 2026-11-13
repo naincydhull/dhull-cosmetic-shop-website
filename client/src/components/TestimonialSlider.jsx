@@ -1,9 +1,9 @@
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback, useMemo, memo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FiStar, FiChevronLeft, FiChevronRight } from 'react-icons/fi';
 import { FaQuoteLeft } from 'react-icons/fa';
 
-const testimonials = [
+const testimonialsData = useMemo(() => [
   {
     id: 1,
     name: 'Priya Sharma',
@@ -28,20 +28,20 @@ const testimonials = [
     text: 'Great local shop with surprisingly good collection. The haircare section is my favorite - they have brands I can\'t find anywhere else nearby. Friendly service and fair prices.',
     avatar: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=100&h=100&fit=crop&crop=face',
   },
-];
+], []);
 
-export default function TestimonialSlider() {
+export default memo(function TestimonialSlider() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [direction, setDirection] = useState(0);
 
   const next = useCallback(() => {
     setDirection(1);
-    setCurrentIndex((prev) => (prev + 1) % testimonials.length);
+    setCurrentIndex((prev) => (prev + 1) % testimonialsData.length);
   }, []);
 
   const prev = useCallback(() => {
     setDirection(-1);
-    setCurrentIndex((prev) => (prev - 1 + testimonials.length) % testimonials.length);
+    setCurrentIndex((prev) => (prev - 1 + testimonialsData.length) % testimonialsData.length);
   }, []);
 
   useEffect(() => {
@@ -49,6 +49,7 @@ export default function TestimonialSlider() {
     return () => clearInterval(interval);
   }, [next]);
 
+  const testimonials = testimonialsData;
   const current = testimonials[currentIndex];
 
   return (
@@ -94,6 +95,10 @@ export default function TestimonialSlider() {
                 src={`https://ui-avatars.com/api/?name=${encodeURIComponent(current.name)}&background=D4A24C&color=6B1030&size=128`}
                 alt={`Customer ${current.name} - Dhull Cosmetic Shop Review`}
                 className="w-12 h-12 rounded-full object-cover border-2 border-gold-300"
+                loading="lazy"
+                decoding="async"
+                width="128"
+                height="128"
               />
             <div className="text-left">
               <p className="font-heading font-semibold text-charcoal-900">{current.name}</p>
@@ -141,4 +146,4 @@ export default function TestimonialSlider() {
       </div>
     </div>
   );
-}
+});

@@ -29,10 +29,13 @@ function App() {
   return (
     <CartProvider>
       <ToastProvider>
-        <div className="min-h-screen flex flex-col">
-          <SchemaMarkup />
-          <Navbar />
-          <main className="flex-1">
+      <div className="min-h-screen flex flex-col">
+        <a href="#main-content" className="skip-link">
+          Skip to main content
+        </a>
+        <SchemaMarkup />
+        <Navbar />
+        <main id="main-content" className="flex-1" tabIndex={-1}>
             <AnimatePresence mode="wait">
               <Routes>
                 <Route path="/" element={<Home />} />
