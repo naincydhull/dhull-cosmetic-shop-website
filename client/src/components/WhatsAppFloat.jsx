@@ -2,6 +2,8 @@ import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FaWhatsapp } from 'react-icons/fa';
 
+const MotionButton = motion('button');
+
 const WHATSAPP_NUMBER = '918053224896';
 const DEFAULT_MESSAGE = "Hi! I'm interested in your products. Could you please share more details?";
 
@@ -37,7 +39,7 @@ export default function WhatsAppFloat() {
             role="menu"
           >
             {quickOptions.map((option) => (
-              <motion.button
+              <MotionButton
                 key={option.label}
                 whileHover={{ scale: 1.05, x: 4 }}
                 whileTap={{ scale: 0.95 }}
@@ -47,13 +49,13 @@ export default function WhatsAppFloat() {
               >
                 <FaWhatsapp size={18} aria-hidden="true" />
                 <span className="font-medium text-sm">{option.label}</span>
-              </motion.button>
+              </MotionButton>
             ))}
           </motion.div>
         )}
       </AnimatePresence>
 
-      <motion.button
+      <MotionButton
         whileHover={{ scale: 1.08 }}
         whileTap={{ scale: 0.92 }}
         onClick={() => setIsExpanded(!isExpanded)}
@@ -67,7 +69,7 @@ export default function WhatsAppFloat() {
         <motion.span animate={{ rotate: isExpanded ? 90 : 0 }} transition={{ type: 'spring', stiffness: 400, damping: 20 }} className="relative z-10">
           <FaWhatsapp size={28} aria-hidden="true" />
         </motion.span>
-      </motion.button>
+      </MotionButton>
     </div>
   );
 }

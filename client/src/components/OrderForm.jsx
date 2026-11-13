@@ -4,6 +4,8 @@ import { FiSend, FiCheckCircle, FiAlertCircle } from 'react-icons/fi';
 import { useCart } from '../context/CartContext';
 import { useToast } from './Toast';
 
+const MotionButton = motion('button');
+
 export default function OrderForm({ onClose }) {
   const { cartItems, clearCart } = useCart();
   const { addToast } = useToast();
@@ -254,7 +256,7 @@ export default function OrderForm({ onClose }) {
             />
           </div>
 
-          <motion.button
+          <MotionButton
             type="submit"
             disabled={isSubmitting}
             whileHover={{ scale: 1.02 }}
@@ -275,7 +277,7 @@ export default function OrderForm({ onClose }) {
                 Send Order on WhatsApp
               </span>
             )}
-          </motion.button>
+          </MotionButton>
         </form>
       </div>
     </motion.div>

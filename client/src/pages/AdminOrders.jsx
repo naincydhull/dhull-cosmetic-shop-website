@@ -4,6 +4,8 @@ import { FiPhone, FiMail, FiEye, FiLock, FiUnlock, FiArrowLeft, FiRefreshCw } fr
 import { useToast } from '../components/Toast';
 import usePageMeta from '../hooks/usePageMeta';
 
+const MotionButton = motion('button');
+
 export default function AdminOrders() {
   usePageMeta({
     title: 'Admin - Orders',
@@ -158,7 +160,7 @@ export default function AdminOrders() {
               )}
             </div>
 
-            <motion.button
+            <MotionButton
               type="submit"
               disabled={loading || !key.trim()}
               whileHover={{ scale: 1.02 }}
@@ -179,7 +181,7 @@ export default function AdminOrders() {
                   Access Orders
                 </span>
               )}
-            </motion.button>
+            </MotionButton>
           </form>
         </div>
       </motion.div>
@@ -197,7 +199,7 @@ export default function AdminOrders() {
         <div className="container-custom px-4 py-4">
           <div className="flex items-center justify-between flex-wrap gap-4">
             <div className="flex items-center gap-3">
-              <motion.button
+              <MotionButton
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 onClick={() => window.location.href = '/'}
@@ -205,13 +207,13 @@ export default function AdminOrders() {
                 aria-label="Back to shop"
               >
                 <FiArrowLeft size={20} aria-hidden="true" />
-              </motion.button>
+              </MotionButton>
               <div>
                 <h2 className="font-heading text-xl font-bold text-charcoal-900">Admin Orders</h2>
                 <p className="text-sm text-charcoal-500">Manage customer orders</p>
               </div>
             </div>
-            <motion.button
+            <MotionButton
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               onClick={fetchOrders}
@@ -220,7 +222,7 @@ export default function AdminOrders() {
               aria-label="Refresh orders"
             >
               <FiRefreshCw className={loading ? 'animate-spin w-5 h-5' : 'w-5 h-5'} aria-hidden="true" />
-            </motion.button>
+            </MotionButton>
           </div>
         </div>
       </header>
@@ -314,14 +316,14 @@ export default function AdminOrders() {
                       </span>
                       <div>
                         <p className="text-xs text-charcoal-500 uppercase tracking-wide">Phone</p>
-                        <motion.button
+                        <MotionButton
                           whileHover={{ scale: 1.05 }}
                           whileTap={{ scale: 0.95 }}
                           onClick={() => callPhone(order.customer?.phone || '')}
                           className="font-medium text-charcoal-900 hover:text-green-600 transition-colors"
                         >
                           {formatPhone(order.customer?.phone || '')}
-                        </motion.button>
+                        </MotionButton>
                       </div>
                     </div>
                     <div className="flex items-center gap-2">
@@ -330,14 +332,14 @@ export default function AdminOrders() {
                       </span>
                       <div>
                         <p className="text-xs text-charcoal-500 uppercase tracking-wide">Reply</p>
-                        <motion.button
+                        <MotionButton
                           whileHover={{ scale: 1.05 }}
                           whileTap={{ scale: 0.95 }}
                           onClick={() => whatsappReply(order.customer?.phone || '', order.customer?.name || '')}
                           className="font-medium text-blue-600 hover:text-blue-700 transition-colors"
                         >
                           WhatsApp Reply
-                        </motion.button>
+                        </MotionButton>
                       </div>
                     </div>
                   </div>

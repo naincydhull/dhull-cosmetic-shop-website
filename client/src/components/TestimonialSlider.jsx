@@ -3,6 +3,8 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { FiStar, FiChevronLeft, FiChevronRight } from 'react-icons/fi';
 import { FaQuoteLeft } from 'react-icons/fa';
 
+const MotionButton = motion('button');
+
 const testimonialsData = [
   {
     id: 1,
@@ -110,7 +112,7 @@ export default memo(function TestimonialSlider() {
 
       <div className="flex justify-center gap-3 mt-8">
         {testimonials.map((_, index) => (
-          <motion.button
+          <MotionButton
             key={index}
             whileHover={{ scale: 1.2 }}
             whileTap={{ scale: 0.9 }}
@@ -125,7 +127,7 @@ export default memo(function TestimonialSlider() {
       </div>
 
       <div className="flex justify-center gap-4 mt-6">
-        <motion.button
+        <MotionButton
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.9 }}
           onClick={prev}
@@ -133,8 +135,8 @@ export default memo(function TestimonialSlider() {
           aria-label="Previous testimonial"
         >
           <FiChevronLeft size={20} aria-hidden="true" />
-        </motion.button>
-        <motion.button
+        </MotionButton>
+        <MotionButton
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.9 }}
           onClick={next}
@@ -142,7 +144,7 @@ export default memo(function TestimonialSlider() {
           aria-label="Next testimonial"
         >
           <FiChevronRight size={20} aria-hidden="true" />
-        </motion.button>
+        </MotionButton>
       </div>
     </div>
   );

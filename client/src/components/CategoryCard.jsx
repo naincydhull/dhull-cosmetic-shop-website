@@ -1,6 +1,8 @@
 import { motion, memo } from 'react';
 import { FiArrowRight } from 'react-icons/fi';
 
+const MotionButton = motion('button');
+
 const categoryIcons = {
   Skincare: (
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="w-8 h-8" aria-hidden="true">
@@ -63,7 +65,7 @@ export default memo(function CategoryCard({ category, productCount, index = 0, o
   const gradient = categoryColors[category] || categoryColors.More;
 
   return (
-    <motion.button
+    <MotionButton
       initial={{ opacity: 0, y: 30 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, delay: index * 0.1 }}
@@ -87,6 +89,6 @@ export default memo(function CategoryCard({ category, productCount, index = 0, o
           <FiArrowRight size={14} aria-hidden="true" />
         </span>
       </div>
-    </motion.button>
+    </MotionButton>
   );
 });

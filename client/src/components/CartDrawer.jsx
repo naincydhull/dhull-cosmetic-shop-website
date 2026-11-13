@@ -6,6 +6,8 @@ import { useToast } from './Toast';
 import CartItem from './CartItem';
 import OrderForm from './OrderForm';
 
+const MotionButton = motion('button');
+
 export default function CartDrawer({ isOpen, onClose }) {
   const { cartItems, totalItems, increaseQty, decreaseQty, removeFromCart, clearCart } = useCart();
   const { addToast } = useToast();
@@ -79,7 +81,7 @@ export default function CartDrawer({ isOpen, onClose }) {
           >
             Aapka Cart ({totalItems} items)
           </motion.h2>
-          <motion.button
+          <MotionButton
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.95 }}
             onClick={onClose}
@@ -87,7 +89,7 @@ export default function CartDrawer({ isOpen, onClose }) {
             aria-label="Close cart"
           >
             <FiX size={22} aria-hidden="true" />
-          </motion.button>
+          </MotionButton>
         </div>
 
         {/* Content */}
@@ -111,14 +113,14 @@ export default function CartDrawer({ isOpen, onClose }) {
               </motion.div>
               <h3 className="font-heading text-lg font-semibold text-charcoal-900 mb-2">Cart khali hai</h3>
               <p className="text-charcoal-500 text-sm mb-6">Kuch products add karke shopping shuru karein</p>
-              <motion.button
+              <MotionButton
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
                 onClick={() => window.location.href = '/products'}
                 className="btn-gold"
               >
                 Browse Products
-              </motion.button>
+              </MotionButton>
             </div>
           ) : (
             <>
@@ -136,14 +138,14 @@ export default function CartDrawer({ isOpen, onClose }) {
               </div>
               
               <div className="pt-4 border-t border-blush-100">
-                <motion.button
+                <MotionButton
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
                   onClick={clearCart}
                   className="w-full py-3 rounded-lg bg-cream-200 text-charcoal-600 font-medium hover:bg-blush-200 hover:text-rose-600 transition-colors"
                 >
                   Clear Cart
-                </motion.button>
+                </MotionButton>
               </div>
             </>
           )}

@@ -2,6 +2,8 @@ import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { FiArrowUp } from 'react-icons/fi';
 
+const MotionButton = motion('button');
+
 export default function ScrollToTop() {
   const [visible, setVisible] = useState(false);
 
@@ -20,7 +22,7 @@ export default function ScrollToTop() {
   if (!visible) return null;
 
   return (
-    <motion.button
+    <MotionButton
       initial={{ opacity: 0, scale: 0, y: 20 }}
       animate={{ opacity: 1, scale: 1, y: 0 }}
       exit={{ opacity: 0, scale: 0, y: 20 }}
@@ -31,6 +33,6 @@ export default function ScrollToTop() {
       aria-label="Scroll to top"
     >
       <FiArrowUp size={20} aria-hidden="true" />
-    </motion.button>
+    </MotionButton>
   );
 }

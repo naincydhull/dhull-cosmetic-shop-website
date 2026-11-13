@@ -2,6 +2,8 @@ import React, { createContext, useContext, useState, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FiCheckCircle, FiAlertCircle, FiInfo } from 'react-icons/fi';
 
+const MotionButton = motion('button');
+
 const ToastContext = createContext(null);
 
 export function ToastProvider({ children }) {
@@ -67,7 +69,7 @@ function Toast({ id, message, type, onClose }) {
     >
       <Icon className="w-5 h-5 flex-shrink-0" aria-hidden="true" />
       <p className="text-sm font-medium">{message}</p>
-      <motion.button
+      <MotionButton
         whileHover={{ scale: 1.2 }}
         whileTap={{ scale: 0.9 }}
         onClick={(e) => { e.stopPropagation(); onClose(id); }}
@@ -77,7 +79,7 @@ function Toast({ id, message, type, onClose }) {
         <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
         </svg>
-      </motion.button>
+      </MotionButton>
     </motion.div>
   );
 }

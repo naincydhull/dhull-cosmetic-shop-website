@@ -8,6 +8,8 @@ import { galleryImages } from '../data/images';
 import { fadeUp, staggerContainer } from '../utils/animations';
 import usePageMeta from '../hooks/usePageMeta';
 
+const MotionButton = motion('button');
+
 export default function Gallery() {
   usePageMeta({
     title: 'Store Gallery',
@@ -50,7 +52,7 @@ export default function Gallery() {
             className="columns-2 md:columns-3 lg:columns-4 gap-4 [column-fill:_balance]"
           >
             {galleryImages.map((image, index) => (
-              <motion.button
+              <MotionButton
                 key={image.url}
                 variants={fadeUp}
                 whileHover={{ scale: 1.02 }}
@@ -76,7 +78,7 @@ export default function Gallery() {
                 <p className="absolute bottom-3 left-3 right-3 text-left text-white text-xs font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-300 line-clamp-2">
                   {image.alt}
                 </p>
-              </motion.button>
+              </MotionButton>
             ))}
           </motion.div>
         </div>

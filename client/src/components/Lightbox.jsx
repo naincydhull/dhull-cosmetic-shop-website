@@ -2,6 +2,8 @@ import { useEffect, useCallback, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FiX, FiChevronLeft, FiChevronRight } from 'react-icons/fi';
 
+const MotionButton = motion('button');
+
 export default function Lightbox({ images, currentIndex, onClose, onNavigate }) {
   const lightboxRef = useRef(null);
   const previousFocusRef = useRef(null);
@@ -44,7 +46,7 @@ export default function Lightbox({ images, currentIndex, onClose, onNavigate }) 
         aria-modal="true"
         aria-label="Image lightbox"
       >
-        <motion.button
+        <MotionButton
           whileHover={{ scale: 1.1, rotate: 90 }}
           whileTap={{ scale: 0.9 }}
           onClick={onClose}
@@ -52,9 +54,9 @@ export default function Lightbox({ images, currentIndex, onClose, onNavigate }) 
           aria-label="Close lightbox"
         >
           <FiX size={24} aria-hidden="true" />
-        </motion.button>
+        </MotionButton>
 
-        <motion.button
+        <MotionButton
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.9 }}
           onClick={() => onNavigate('prev')}
@@ -63,7 +65,7 @@ export default function Lightbox({ images, currentIndex, onClose, onNavigate }) 
           aria-label="Previous image"
         >
           <FiChevronLeft size={28} aria-hidden="true" />
-        </motion.button>
+        </MotionButton>
 
         <motion.div
           initial={{ scale: 0.9, opacity: 0 }}
@@ -79,7 +81,7 @@ export default function Lightbox({ images, currentIndex, onClose, onNavigate }) 
           />
         </motion.div>
 
-        <motion.button
+        <MotionButton
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.9 }}
           onClick={() => onNavigate('next')}
@@ -88,7 +90,7 @@ export default function Lightbox({ images, currentIndex, onClose, onNavigate }) 
           aria-label="Next image"
         >
           <FiChevronRight size={28} aria-hidden="true" />
-        </motion.button>
+        </MotionButton>
 
         <motion.div
           initial={{ opacity: 0, y: 20 }}

@@ -4,6 +4,8 @@ import { FiShoppingBag, FiExternalLink, FiHeart, FiPlus, FiMinus, FiCheck } from
 import { useCart } from '../context/CartContext';
 import { useToast } from './Toast';
 
+const MotionButton = motion('button');
+
 const WHATSAPP_NUMBER = '918053224896';
 
 const ProductCard = forwardRef(function ProductCard({ product, index = 0, variant = 'default' }, ref) {
@@ -139,7 +141,7 @@ const ProductCard = forwardRef(function ProductCard({ product, index = 0, varian
             </button>
           </div>
         ) : (
-          <motion.button
+          <MotionButton
             onClick={handleAddToCart}
             className="inline-flex items-center justify-center w-full gap-2 px-4 py-2.5 bg-rose-500 text-cream-50 font-medium rounded-lg hover:bg-rose-600 hover:shadow-md hover:shadow-rose-500/30 transition-all duration-300 group"
             whileTap={{ scale: 0.98 }}
@@ -147,7 +149,7 @@ const ProductCard = forwardRef(function ProductCard({ product, index = 0, varian
             <FiShoppingBag size={16} aria-hidden="true" />
             <span>Add to Cart</span>
             <FiCheck size={14} aria-hidden="true" className="group-hover:opacity-100 opacity-0 transition-opacity" />
-          </motion.button>
+          </MotionButton>
         )}
 
         <a

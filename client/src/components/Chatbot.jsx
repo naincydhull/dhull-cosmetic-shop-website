@@ -2,6 +2,8 @@ import { useState, useRef, useEffect, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FiSend, FiMinus, FiRefreshCw, FiMaximize2, FiMinimize2, FiMessageCircle } from 'react-icons/fi';
 
+const MotionButton = motion('button');
+
 const WELCOME = {
   role: 'assistant',
   content:
@@ -305,7 +307,7 @@ export default function Chatbot() {
       </AnimatePresence>
 
       {/* Launcher button with website logo */}
-      <motion.button
+      <MotionButton
         whileHover={{ scale: 1.06 }}
         whileTap={{ scale: 0.94 }}
         onClick={() => setOpen((v) => !v)}
@@ -325,7 +327,7 @@ export default function Chatbot() {
               className="w-16 h-16 rounded-full object-contain bg-white p-0.5"
             />
         )}
-      </motion.button>
+      </MotionButton>
     </div>
   );
 }

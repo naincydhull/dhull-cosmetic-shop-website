@@ -2,6 +2,8 @@ import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { FiCheckCircle, FiAlertCircle, FiLoader } from 'react-icons/fi';
 
+const MotionButton = motion('button');
+
 export default function ContactForm() {
   const [formData, setFormData] = useState({
     name: '',
@@ -169,7 +171,7 @@ export default function ContactForm() {
         </motion.div>
       )}
 
-      <motion.button
+      <MotionButton
         type="submit"
         disabled={status === 'submitting'}
         whileHover={{ scale: 1.02 }}
@@ -184,7 +186,7 @@ export default function ContactForm() {
         ) : (
           'Send Message'
         )}
-      </motion.button>
+      </MotionButton>
     </form>
   );
 }
