@@ -1,9 +1,9 @@
-import { useState, useEffect, useCallback, useMemo, memo } from 'react';
+import { useState, useEffect, useCallback, memo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FiStar, FiChevronLeft, FiChevronRight } from 'react-icons/fi';
 import { FaQuoteLeft } from 'react-icons/fa';
 
-const testimonialsData = useMemo(() => [
+const testimonialsData = [
   {
     id: 1,
     name: 'Priya Sharma',
@@ -28,7 +28,7 @@ const testimonialsData = useMemo(() => [
     text: 'Great local shop with surprisingly good collection. The haircare section is my favorite - they have brands I can\'t find anywhere else nearby. Friendly service and fair prices.',
     avatar: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=100&h=100&fit=crop&crop=face',
   },
-], []);
+];
 
 export default memo(function TestimonialSlider() {
   const [currentIndex, setCurrentIndex] = useState(0);
