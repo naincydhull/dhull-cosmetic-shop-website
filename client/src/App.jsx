@@ -1,4 +1,4 @@
-import { useState, Suspense, lazy } from 'react';
+import { useEffect, useState, Suspense, lazy } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import { AnimatePresence } from 'framer-motion';
 import Navbar from './components/Navbar';
@@ -41,6 +41,14 @@ const ComponentLoading = () => (
   </div>
 );
 
+function CartRoute({ openCart }) {
+  useEffect(() => {
+    openCart(true);
+  }, [openCart]);
+
+  return null;
+}
+
 function App() {
   const [isCartOpen, setIsCartOpen] = useState(false);
 
@@ -66,7 +74,7 @@ function App() {
                   <Route path="/" element={<Home />} />
                   <Route path="/about-us" element={<About />} />
                   <Route path="/products" element={<Products />} />
-                  <Route path="/cart" element={<div />} />
+                  <Route path="/cart" element={<CartRoute openCart={setIsCartOpen} />} />
                   <Route path="/gallery" element={<Gallery />} />
                   <Route path="/contact-us" element={<Contact />} />
                   <Route path="/admin" element={<AdminOrders />} />
