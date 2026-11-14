@@ -43,7 +43,18 @@ export default function CartDrawer({ isOpen, onClose }) {
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [isOpen]);
 
-  const subtotal = 0; // No prices in this system
+  const subtotal = 0;
+
+  const cartItemsList = cartItems.map((item, index) => (
+    <CartItem
+      key={item.id}
+      item={item}
+      index={index}
+      onIncrease={() => increaseQty(item.id)}
+      onDecrease={() => decreaseQty(item.id)}
+      onRemove={() => removeFromCart(item.id)}
+    />
+  ));
 
   if (!isOpen) return null;
 
@@ -71,7 +82,6 @@ export default function CartDrawer({ isOpen, onClose }) {
         aria-labelledby="cart-drawer-title"
         aria-label="Shopping cart"
       >
-        {/* Header */}
         <div className="flex items-center justify-between p-4 sm:p-5 border-b border-blush-100 bg-cream-100 sticky top-0 z-10">
           <fm.motion.h2
             initial={{ opacity: 0, x: -20 }}
@@ -93,12 +103,11 @@ export default function CartDrawer({ isOpen, onClose }) {
           </MotionButton>
         </div>
 
-        {/* Content */}
         <fm.motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2 }}
-          className="flex-1 overflow-y-auto p-4 sm:p-5 space-y-4 pb-40"
+          className="flex-1 overflow-y-auto p-4 sm:p-5 space-y-4"
         >
           {cartItems.length === 0 ? (
             <div className="flex flex-col items-center justify-center h-64 text-center">
@@ -124,20 +133,11 @@ export default function CartDrawer({ isOpen, onClose }) {
               </MotionButton>
             </div>
           ) : (
-            <>
+            <div>
               <div className="space-y-3" role="list" aria-label="Cart items">
-                {cartItems.map((item, index) => (
-                  <CartItem
-                    key={item.id}
-                    item={item}
-                    index={index}
-                    onIncrease={() => increaseQty(item.id)}
-                    onDecrease={() => decreaseQty(item.id)}
-                    onRemove={() => removeFromCart(item.id)}
-                  />
-                ))}
+                {cartItemsList}
               </div>
-              
+
               <div className="pt-4 border-t border-blush-100">
                 <MotionButton
                   whileHover={{ scale: 1.02 }}
@@ -148,16 +148,13 @@ export default function CartDrawer({ isOpen, onClose }) {
                   Clear Cart
                 </MotionButton>
               </div>
-            </>
+
+              <div className="mt-6 pt-6 border-t border-blush-100">
+                <OrderForm onClose={onClose} />
+              </div>
+            </div>
           )}
         </fm.motion.div>
-
-        {/* Order Form - Sticky at bottom when cart has items */}
-        {cartItems.length > 0 && (
-          <div className="sticky bottom-0 bg-cream-50/95 backdrop-blur-sm border-t border-blush-100 p-4 sm:p-5 shadow-xl z-10">
-            <OrderForm onClose={onClose} />
-          </div>
-        )}
       </fm.motion.aside>
     </AnimatePresence>
   );
