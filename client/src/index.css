@@ -18,32 +18,60 @@
   src: local('Poppins');
 }
 
-@layer base {
-  html {
-    scroll-behavior: smooth;
-    overflow-x: hidden;
-  }
+/* Performance optimizations */
+* {
+  box-sizing: border-box;
+}
 
-  body {
-    @apply font-body text-charcoal-900 bg-cream-50 antialiased;
-    overflow-x: hidden;
-  }
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+  /* Reduce motion for users who prefer it */
+}
 
-  h1, h2, h3, h4, h5, h6 {
-    @apply font-heading font-medium;
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
   }
+}
 
-  ::selection {
-    @apply bg-rose-500 text-cream-50;
-  }
+body {
+  @apply font-body text-charcoal-900 bg-cream-50 antialiased;
+  overflow-x: hidden;
+  /* Improve text rendering on mobile */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
 
-  :focus-visible {
-    @apply outline-none ring-2 ring-rose-500 ring-offset-2 ring-offset-cream-50;
-  }
+h1, h2, h3, h4, h5, h6 {
+  @apply font-heading font-medium;
+}
 
-  .skip-link {
-    @apply sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-rose-500 focus:text-cream-50 focus:font-semibold focus:rounded focus:ring-2 focus:ring-offset-2;
-  }
+::selection {
+  @apply bg-rose-500 text-cream-50;
+}
+
+:focus-visible {
+  @apply outline-none ring-2 ring-rose-500 ring-offset-2 ring-offset-cream-50;
+}
+
+.skip-link {
+  @apply sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-rose-500 focus:text-cream-50 focus:font-semibold focus:rounded focus:ring-2 focus:ring-offset-2;
+}
+
+/* Image optimization: prevent layout shift */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  /* Reserve space for images to prevent CLS */
+  content-visibility: auto;
 }
 
 @layer components {

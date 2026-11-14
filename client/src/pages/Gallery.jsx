@@ -10,6 +10,15 @@ import usePageMeta from '../hooks/usePageMeta';
 
 const MotionButton = fm.motion('button');
 
+// Helper to generate responsive image URLs from Unsplash
+const getResponsiveSrcSet = (baseUrl) => {
+  if (!baseUrl || baseUrl.startsWith('/images/')) return '';
+  const widths = [400, 800, 1200];
+  return widths
+    .map(w => `${baseUrl}&w=${w} ${w}w`)
+    .join(', ');
+};
+
 export default function Gallery() {
   usePageMeta({
     title: 'Store Gallery',
@@ -60,15 +69,29 @@ export default function Gallery() {
                 className="group relative mb-4 block w-full overflow-hidden rounded-2xl shadow-sm hover:shadow-xl transition-shadow duration-300 break-inside-avoid"
                 aria-label={`Open image: ${image.alt}`}
               >
-                <img
-                  src={image.url}
-                  alt={image.alt}
-                  loading="lazy"
-                  className="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-110"
-                  onError={(e) => {
-                    e.currentTarget.src = 'https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=600&h=600&fit=crop';
-                  }}
-                />
+                {image.url.startsWith('/images/') ? (
+                  <img
+                    src={image.url}
+                    alt={image.alt}
+                    loading="lazy"
+                    className="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-110"
+                    onError={(e) => {
+                      e.currentTarget.src = 'https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=600&h=600&fit=crop';
+                    }}
+                  />
+                ) : (
+                  <img
+                    src={image.url}
+                    srcSet={getResponsiveSrcSet(image.url)}
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                    alt={image.alt}
+                    loading="lazy"
+                    className="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-110"
+                    onError={(e) => {
+                      e.currentTarget.src = 'https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=600&h=600&fit=crop';
+                    }}
+                  />
+                )}
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" aria-hidden="true" />
                 <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                   <span className="w-12 h-12 rounded-full bg-cream-200/90 backdrop-blur flex items-center justify-center text-rose-600 shadow-lg">

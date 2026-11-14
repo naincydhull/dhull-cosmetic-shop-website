@@ -5,12 +5,13 @@
     <link rel="icon" type="image/png" href="/favicon.png" />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
     <meta name="description" content="Dhull Cosmetic Shop - Best cosmetic store in Harsola, Kaithal Haryana. Buy skincare, makeup, haircare, perfume, nail polish online. Genuine beauty products at wholesale prices." />
     <meta name="keywords" content="dhull cosmetic shop, cosmetic shop harsola, beauty store kaithal, skincare products, makeup products, hair care, perfume, nail polish, cosmetics haryana, beauty products kaithal, buy cosmetics online" />
     <meta name="robots" content="index, follow" />
     <meta name="author" content="Dhull Cosmetic Shop" />
     <meta name="theme-color" content="#7a2332" />
+    <link rel="manifest" href="/manifest.json" />
     <meta property="og:title" content="Dhull Cosmetic Shop | Best Cosmetics Store in Harsola, Kaithal" />
     <meta property="og:description" content="Premium skincare, makeup, haircare, fragrance & nail products in Harsola, Kaithal, Haryana. Genuine beauty products at best prices." />
     <meta property="og:type" content="website" />
@@ -36,14 +37,20 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://images.unsplash.com" crossorigin>
     <link rel="dns-prefetch" href="https://ui-avatars.com">
+    <link rel="dns-prefetch" href="https://api.groq.com">
 
     <!-- Preload critical hero image (LCP candidate) -->
     <link rel="preload" as="image" href="/images/hero/hero1.webp" fetchpriority="high" />
-    <link rel="preload" as="image" href="/logo.svg" />
+    <link rel="preload" as="image" href="/logo.svg" fetchpriority="low" />
 
     <!-- Load Google Fonts non-blocking -->
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
     <noscript><link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet"></noscript>
+
+    <!-- Critical CSS inlined for faster FCP -->
+    <style>
+      *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:Poppins,sans-serif;background:#fdf9f2;color:#1a1a1a;line-height:1.5}img{max-width:100%;height:auto;display:block}.skip-link{position:absolute;top:-100%;left:50%;transform:translateX(-50%);background:#6B1030;color:#fff;padding:.75rem 1.5rem;border-radius:0 0 .5rem .5rem;z-index:1000;font-weight:500;transition:top .2s}.skip-link:focus{top:0}.container-custom{width:100%;max-width:1280px;margin:0 auto;padding:0 1rem}.btn-primary{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;padding:.75rem 1.5rem;background:#6B1030;color:#fdf9f2;font-weight:600;border-radius:.75rem;transition:all .3s}.btn-primary:hover{background:#7a2332;transform:translateY(-2px);box-shadow:0 10px 25px -5px rgba(107,16,50,.4)}.btn-secondary{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;padding:.75rem 1.5rem;border:2px solid #6B1030;color:#6B1030;font-weight:600;border-radius:.75rem;transition:all .3s}.btn-secondary:hover{background:#6B1030;color:#fdf9f2}.btn-gold{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;padding:.75rem 1.5rem;background:#D4A24C;color:#6B1030;font-weight:600;border-radius:.75rem;transition:all .3s}.btn-gold:hover{background:#e0b05c;transform:translateY(-2px);box-shadow:0 10px 25px -5px rgba(212,162,76,.4)}.input-field{width:100%;padding:.75rem 1rem;border:1px solid #e8d5d5;border-radius:.75rem;background:#fff;color:#1a1a1a;transition:all .2s}.input-field:focus{outline:none;border-color:#D4A24C;box-shadow:0 0 0 3px rgba(212,162,76,.2)}.label-field{display:block;margin-bottom:.5rem;font-weight:500;color:#1a1a1a;font-size:.875rem}.card-base{background:#fff;border:1px solid #f5e6e6;border-radius:1rem;box-shadow:0 1px 3px rgba(0,0,0,.05)}.gradient-text{background:linear-gradient(135deg,#D4A24C,#6B1030);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}@media (max-width:640px){.container-custom{padding:0 .75rem}.btn-primary,.btn-secondary,.btn-gold{padding:.625rem 1.25rem;font-size:.875rem}}
+    </style>
 
     <script type="application/ld+json">
     {

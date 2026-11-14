@@ -8,6 +8,15 @@ const MotionButton = fm.motion('button');
 
 const WHATSAPP_NUMBER = '918053224896';
 
+// Helper to generate responsive image URLs from Unsplash
+const getResponsiveSrcSet = (baseUrl) => {
+  if (!baseUrl || baseUrl.startsWith('/images/')) return '';
+  const widths = [400, 600, 800];
+  return widths
+    .map(w => `${baseUrl}&w=${w} ${w}w`)
+    .join(', ');
+};
+
 const ProductCard = forwardRef(function ProductCard({ product, index = 0, variant = 'default' }, ref) {
   const { addToCart, removeFromCart, increaseQty, decreaseQty, cartItems } = useCart();
   const { addToast } = useToast();
@@ -77,18 +86,35 @@ const ProductCard = forwardRef(function ProductCard({ product, index = 0, varian
       className="card-base group"
     >
       <div className="relative aspect-[4/3] overflow-hidden bg-blush-50">
-        <img
-          src={product.image}
-          alt={product.alt || product.name}
-          loading="lazy"
-          decoding="async"
-          width="400"
-          height="400"
-          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-          onError={(e) => {
-            e.currentTarget.src = 'https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=600&h=600&fit=crop';
-          }}
-        />
+        {product.image.startsWith('/images/') ? (
+          <img
+            src={product.image}
+            alt={product.alt || product.name}
+            loading="lazy"
+            decoding="async"
+            width="400"
+            height="400"
+            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+            onError={(e) => {
+              e.currentTarget.src = 'https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=600&h=600&fit=crop';
+            }}
+          />
+        ) : (
+          <img
+            src={product.image}
+            srcSet={getResponsiveSrcSet(product.image)}
+            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+            alt={product.alt || product.name}
+            loading="lazy"
+            decoding="async"
+            width="400"
+            height="400"
+            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+            onError={(e) => {
+              e.currentTarget.src = 'https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=600&h=600&fit=crop';
+            }}
+          />
+        )}
         <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" aria-hidden="true" />
         
         <div className="absolute top-3 right-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300 translate-y-2 group-hover:translate-y-0">

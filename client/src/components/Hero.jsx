@@ -9,6 +9,9 @@ const { motion, AnimatePresence } = fm;
 
 const WHATSAPP_LINK = `https://wa.me/918053224896?text=${encodeURIComponent("Hello! I'd like to know more about your products.")}`;
 
+// Low-quality placeholder (1px base64) for blur-up effect
+const LQIP = 'data:image/webp;base64,UklGRhoAAABXRUJQVlA4TA0AAAAvAAAAEAcQERGIiP4HAA==';
+
 const container = {
   hidden: {},
   visible: {
@@ -71,8 +74,17 @@ export default function Hero() {
               decoding="async"
               width="1600"
               height="900"
+              style={{
+                filter: 'brightness(1.1)',
+                backgroundImage: `url(${LQIP})`,
+                backgroundSize: 'cover',
+                backgroundPosition: 'center',
+              }}
               onError={(e) => {
                 e.currentTarget.src = heroSlides[0].url;
+              }}
+              onLoad={(e) => {
+                e.currentTarget.style.backgroundImage = 'none';
               }}
             />
           </motion.div>
