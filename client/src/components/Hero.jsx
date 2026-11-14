@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
 import * as fm from 'framer-motion';
 import { FiShoppingBag, FiClock, FiPhone, FiMapPin, FiStar, FiChevronLeft, FiChevronRight } from 'react-icons/fi';
 import { FaWhatsapp } from 'react-icons/fa';
@@ -39,6 +38,7 @@ export default function Hero() {
   const goToSlide = (index) => setSlideIndex((index + heroSlides.length) % heroSlides.length);
   const nextSlide = () => goToSlide(slideIndex + 1);
   const prevSlide = () => goToSlide(slideIndex - 1);
+  const openCart = () => window.__CART_DRAWER_OPEN__?.();
 
   useEffect(() => {
     if (paused) return undefined;
@@ -173,10 +173,10 @@ export default function Hero() {
             variants={item}
             className="mt-4 flex flex-col sm:flex-row gap-2 justify-center"
           >
-            <Link to="/products" className="btn-gold">
+            <button type="button" onClick={openCart} className="btn-gold">
               <FiShoppingBag className="mr-2" aria-hidden="true" />
               Shop Now
-            </Link>
+            </button>
             <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer" className="btn-secondary !border-gold-300 !text-gold-200 hover:!bg-gold-500/20">
               <FaWhatsapp className="mr-2" aria-hidden="true" />
               WhatsApp Us
