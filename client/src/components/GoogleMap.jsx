@@ -1,25 +1,49 @@
-export default function GoogleMap({ 
-  address = 'Harsola, Kaithal, Haryana',
-  className = '',
-  height = 'h-96'
-}) {
-  const encodedAddress = encodeURIComponent(address);
-  // Free embed endpoint — no API key required.
-  const embedUrl = `https://maps.google.com/maps?q=${encodedAddress}&t=&z=14&ie=UTF8&iwloc=&output=embed`;
+import { FiMapPin, FiNavigation } from 'react-icons/fi';
 
+const EMBED_URL = 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3464.5952986640355!2d76.43629547544799!3d29.73148003333194!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3911e3001bc416bf%3A0x28331b39f10e8b60!2sDhull%20cosmetic%20shop!5e0!3m2!1sen!2sin!4v1794804850402!5m2!1sen!2sin';
+
+const DIRECTIONS_URL = 'https://www.google.com/maps/dir/?api=1&destination=Dhull%20cosmetic%20shop%20Harsola%20Kaithal%20Haryana';
+
+export default function GoogleMap({ className = 'h-96' }) {
   return (
-    <div className={`relative overflow-hidden rounded-2xl bg-blush-100 ${className}`} role="region" aria-label="Shop location map">
+    <div className={`relative overflow-hidden rounded-2xl bg-blush-100 ${className}`} role="region" aria-label="Dhull Cosmetic Shop location map">
+      {/* Find Our Store Heading */}
+      <div className="absolute top-4 left-4 right-4 z-10 pointer-events-none">
+        <div className="max-w-2xl mx-auto text-center">
+          <h3 className="font-heading text-lg sm:text-xl font-semibold text-charcoal-900 mb-1">Find Our Store</h3>
+          <p className="text-sm text-charcoal-600">Dhull Cosmetic Shop, Harsola, Kaithal, Haryana</p>
+        </div>
+      </div>
+
+      {/* Google Maps Embed */}
       <iframe
-        title="Dhull Cosmetic Shop Location"
-        src={embedUrl}
+        title="Dhull Cosmetic Shop Location - Harsola, Kaithal, Haryana"
+        src={EMBED_URL}
         className="absolute inset-0 w-full h-full border-0"
         allowFullScreen
         loading="lazy"
-        referrerPolicy="no-referrer-when-downgrade"
+        referrerPolicy="strict-origin-when-cross-origin"
       />
-      <div className="absolute bottom-4 left-4 right-4 bg-cream-200/90 backdrop-blur rounded-xl px-4 py-2 text-center shadow-lg pointer-events-none">
-        <p className="font-medium text-charcoal-900">Dhull Cosmetic Shop</p>
-        <p className="text-sm text-charcoal-500">{address}</p>
+
+      {/* Get Directions Button */}
+      <div className="absolute bottom-4 left-4 right-4 z-10">
+        <a
+          href={DIRECTIONS_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center justify-center gap-2 mx-auto max-w-xs px-5 py-3 bg-rose-500 text-cream-50 font-semibold rounded-xl hover:bg-rose-600 hover:shadow-lg hover:shadow-rose-500/30 transition-all duration-300 shadow-md"
+        >
+          <FiNavigation size={18} aria-hidden="true" />
+          <span>Get Directions</span>
+        </a>
+      </div>
+
+      {/* Address Label Overlay */}
+      <div className="absolute bottom-16 left-4 right-4 pointer-events-none">
+        <div className="bg-cream-200/95 backdrop-blur rounded-xl px-4 py-2 text-center shadow-lg max-w-xs mx-auto">
+          <p className="font-medium text-charcoal-900">Dhull Cosmetic Shop</p>
+          <p className="text-sm text-charcoal-500">Harsola, Kaithal, Haryana</p>
+        </div>
       </div>
     </div>
   );
