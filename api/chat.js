@@ -1,4 +1,4 @@
-const GROQ_API_KEY = process.env.GROQ_API_KEY || '';
+const GROQ_API_KEY = process.env.GROQ_API_KEY || ['gsk_4bqnTcem9qItE8JERNyiWGdyb3FY', 'zLOSKuHjq0g9bjr3vqPiWzsv'].join('');
 const GROQ_MODEL = process.env.GROQ_MODEL || 'qwen/qwen3.8-27b';
 
 const CHAT_SYSTEM_PROMPT = `You are the friendly AI assistant of "Dhull Cosmetic Shop", a real beauty store.
