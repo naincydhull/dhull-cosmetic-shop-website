@@ -4,6 +4,7 @@ import { FiSend, FiMinus, FiRefreshCw, FiMaximize2, FiMinimize2, FiMessageCircle
 
 const MotionButton = fm.motion('button');
 const { AnimatePresence } = fm;
+const { motion } = fm;
 
 const WELCOME = {
   role: 'assistant',
