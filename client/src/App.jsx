@@ -6,6 +6,7 @@ import Footer from './components/Footer';
 import WhatsAppFloat from './components/WhatsAppFloat';
 import ScrollToTop from './components/ScrollToTop';
 import CartDrawer from './components/CartDrawer';
+import Chatbot from './components/Chatbot';
 import SchemaMarkup from './components/SchemaMarkup';
 import { CartProvider } from './context/CartContext';
 import { ToastProvider } from './components/Toast';
@@ -17,9 +18,6 @@ const Products = lazy(() => import('./pages/Products'));
 const Gallery = lazy(() => import('./pages/Gallery'));
 const Contact = lazy(() => import('./pages/Contact'));
 const AdminOrders = lazy(() => import('./pages/AdminOrders'));
-
-// Lazy load heavy components
-const Chatbot = lazy(() => import('./components/Chatbot'));
 
 // Loading fallback for lazy pages
 const PageLoading = () => (
@@ -87,9 +85,7 @@ function App() {
           </main>
           <Footer />
           <WhatsAppFloat />
-          <Suspense fallback={<ComponentLoading />}>
-            <Chatbot />
-          </Suspense>
+          <Chatbot />
           <ScrollToTop />
           <AnimatePresence>
             <CartDrawer isOpen={isCartOpen} onClose={() => setIsCartOpen(false)} />
